@@ -23,6 +23,7 @@ class EnsoServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $router = $this->app['router'];
+        $router->pushMiddlewareToGroup('enso', \App\Http\Middleware\RestrictCmsAccess::class);
     }
 }
