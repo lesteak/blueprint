@@ -17,11 +17,15 @@ use Yadda\Enso\Blog\Facades\EnsoBlog;
 
 Auth::routes(['register' => false]);
 
-Route::group(['middleware' => 'holding-page'], function () {
+Route::middleware(['holding-page', 'globalscopes'])->group(function () {
     Route::get('/')->uses([\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     // Duplicate route for post-login/register redirection
     Route::get('home')->uses([\App\Http\Controllers\HomeController::class, 'redirect']);
+
+    Route::prefix('trainers')->name('trainers.')->group(function () {
+        Route::get('{trainer}')->uses([\App\Http\Controllers\TrainerController::class, 'show'])->name('show');
+    });
 
     EnsoBlog::routes('articles', Yadda\Enso\Blog\Controllers\PostController::class, 'articles');
 

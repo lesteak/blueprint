@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Yadda\Enso\Crud\Contracts\IsCrudModel as ContractsIsCrudModel;
 use Yadda\Enso\Crud\Contracts\Model\IsPublishable as ModelIsPublishable;
+use Yadda\Enso\Crud\Traits\HasFlexibleFields;
 use Yadda\Enso\Crud\Traits\IsCrudModel;
 use Yadda\Enso\Crud\Traits\Model\IsPublishable;
 use Yadda\Enso\Facades\EnsoCrud;
@@ -17,6 +18,7 @@ use Yadda\Enso\Utilities\Helpers;
 class Trainer extends Model implements ContractsIsCrudModel, ModelIsPublishable
 {
     use HasMeta,
+        HasFlexibleFields,
         IsCrudModel,
         IsPublishable;
 
@@ -80,6 +82,27 @@ class Trainer extends Model implements ContractsIsCrudModel, ModelIsPublishable
     public function getPublishAtColumn()
     {
         return 'publish_at';
+    }
+
+    /**
+     * Name of the permission that allows users to view a page irrespective of
+     * it's publishing state.
+     *
+     * @return string|null
+     */
+    public function getPublishViewOverridePermission()
+    {
+        return 'view-unpublished-trainers';
+    }
+
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 
     /**
