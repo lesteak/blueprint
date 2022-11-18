@@ -2,24 +2,22 @@
 
 namespace App\Crud\Rows;
 
-use App\Crud\Fields\ButtonsField;
-use Illuminate\Support\Facades\Config;
+use Yadda\Enso\Crud\Forms\Fields\FileUploadFieldResumable;
 use Yadda\Enso\Crud\Forms\Fields\TextField;
-use Yadda\Enso\Crud\Forms\Fields\WysiwygField;
 use Yadda\Enso\Crud\Forms\FlexibleContentSection;
 use Yadda\Enso\Crud\Handlers\FlexibleRow;
 
 /**
  * Represents a purely text row withing a flexible content collection.
  */
-class TextRow extends FlexibleContentSection
+class HeroRow extends FlexibleContentSection
 {
     /**
      * Default name for this section
      *
      * @param string
      */
-    const DEFAULT_NAME = 'text';
+    const DEFAULT_NAME = 'hero';
 
     /**
      * Array of style options
@@ -28,15 +26,18 @@ class TextRow extends FlexibleContentSection
      */
     protected $styles;
 
-    public function __construct(string $name = 'text')
+    public function __construct(string $name = 'hero')
     {
         parent::__construct($name);
 
         $this->addFields([
             TextField::make('title'),
-            WysiwygField::make('content')
-                ->setModules(Config::get('enso.flexible-content.rows.text.modules', [])),
-            ButtonsField::make('buttons'),
+            FileUploadFieldResumable::make('desktop_images')
+                ->setLabel('Desktop Image')
+                ->addFieldsetClass('is-half'),
+            FileUploadFieldResumable::make('mobile_images')
+                ->setLabel('Mobile Image')
+                ->addFieldsetClass('is-half'),
         ]);
     }
 
@@ -52,12 +53,13 @@ class TextRow extends FlexibleContentSection
      */
     protected static function getRowContent(FlexibleRow $row): array
     {
-        $instance = static::make();
+        $desktop_image = $row->block('desktop_images') ? $row->blockContent('desktop_images')->first() : null;
+        $mobile_image = $row->block('mobile_images') ? $row->blockContent('mobile_images')->first() : null;
 
         return [
-            'buttons' => $instance->getFlexibleContentFieldContent('buttons', $row),
-            'content' => static::getWysiwygHtml($row->getBlocks(), 'content'),
-            'title' => $row->blockContent('title'),
+            'desktop_image' => $desktop_image ?? $mobile_image,
+            'mobile_image' => $mobile_image ?? $desktop_image,
+            'title' => $row->block('title') ? $row->blockContent('title') : '',
         ];
     }
 }
