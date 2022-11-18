@@ -37,7 +37,10 @@ class EnsoServiceProvider extends ServiceProvider
         $router->pushMiddlewareToGroup('enso', \App\Http\Middleware\RestrictCmsAccess::class);
 
         EnsoMenu::addItems([
+            Config::get('enso.crud.class.menuitem'),
+            Config::get('enso.crud.location.menuitem'),
             Config::get('enso.crud.post.menuitem'),
+            Config::get('enso.crud.trainer.menuitem'),
         ]);
     }
 }
