@@ -32,4 +32,25 @@ class LocationController extends Controller
 
         return View::make('locations.show', compact('page', 'location'));
     }
+
+    /**
+     * Show the timetable for a given page
+     *
+     * @param Location $location
+     *
+     * @return \Illuminate\View\View
+     */
+    public function timetable(Location $location): \Illuminate\View\View
+    {
+        $page = $this->usePage('timetable');
+
+        $meta = $location->getMeta();
+
+        $meta->overrideTitle($location->name);
+        $meta->overrideImage($location->thumbnail ?? $location->heroImage);
+
+        EnsoMeta::use($meta);
+
+        return View::make('locations.timetable', compact('page', 'location'));
+    }
 }

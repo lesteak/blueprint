@@ -51,8 +51,6 @@ return [
     /**
      * Custom template definitions
      */
-    'templated_records' => [
-        'timetable',
-    ],
+    'templated_records' => [],
 
 ];

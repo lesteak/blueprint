@@ -29,6 +29,7 @@ Route::middleware(['holding-page', 'globalscopes'])->group(function () {
 
     Route::prefix('locations')->name('locations.')->group(function () {
         Route::get('{location}')->uses([\App\Http\Controllers\LocationController::class, 'show'])->name('show');
+        Route::get('{location}/timetable')->uses([\App\Http\Controllers\LocationController::class, 'timetable'])->name('timetable');
     });
 
     Route::prefix('trainers')->name('trainers.')->group(function () {
