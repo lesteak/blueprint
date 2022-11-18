@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Yadda\Enso\Blog\Facades\EnsoBlog;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ Route::group(['middleware' => 'holding-page'], function () {
 
     // Duplicate route for post-login/register redirection
     Route::get('home')->uses([\App\Http\Controllers\HomeController::class, 'redirect']);
+
+    EnsoBlog::routes('articles', Yadda\Enso\Blog\Controllers\PostController::class, 'articles');
 
     Route::get('{page}')->uses([\App\Http\Controllers\PageController::class, 'show'])->name('pages.show');
 });

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3a1a4cf237bb63f92334c99c8884ad90",
+    "content-hash": "cc590fe3476d2e4dcb4c762cf255a4f4",
     "packages": [
         {
             "name": "alchemy/binary-driver",
@@ -7465,6 +7465,50 @@
             ],
             "description": "Enso Analytics",
             "time": "2021-07-27T15:48:41+00:00"
+        },
+        {
+            "name": "yadda/enso-blog",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "git@bitbucket.org:yadda/enso-blog.git",
+                "reference": "209a2fbfe317d54f43910ef1daacadcb14c9aada"
+            },
+            "require": {
+                "php": "^7.3|^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Yadda\\Enso\\Blog\\EnsoBlogServiceProvider"
+                    ],
+                    "aliases": {
+                        "EnsoBlog": "Yadda\\Enso\\Blog\\Facades\\EnsoBlog"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Yadda\\Enso\\Blog\\": "src/",
+                    "Yadda\\Enso\\Blog\\Tests\\": "tests"
+                }
+            },
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Jake Gully",
+                    "email": "jake@maya.agency"
+                },
+                {
+                    "name": "Andrew Ellender",
+                    "email": "andrew@maya.agency"
+                }
+            ],
+            "description": "Blog module for the Enso CMS",
+            "time": "2022-07-27T11:24:06+00:00"
         },
         {
             "name": "yadda/enso-core",
