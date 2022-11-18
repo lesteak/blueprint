@@ -33,6 +33,7 @@ return [
      */
     'default-selection' => [
         'background' => 'light',
+        'more_content' => 'see_all',
     ],
 
     'selections' => [
@@ -40,9 +41,15 @@ return [
             'light' => 'Light',
             'dark' => 'Dark',
         ],
+        'more_content' => [
+            'none' => 'None',
+            'see_all' => 'See All Link',
+            'load_more' => 'Load More Button',
+        ]
     ],
 
     'rows' => [
+        'articles' => \App\Crud\Rows\ArticlesRow::class,
         'button' => \App\Crud\Rows\ButtonRow::class,
         'carousel' => \App\Crud\Rows\CarouselRow::class,
         'cta' => \App\Crud\Rows\CtaRow::class,

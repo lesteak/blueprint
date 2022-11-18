@@ -84,9 +84,9 @@ trait HasSelection
         $default_selection = $this->getDefaultSelection($field_name);
 
         if (!empty(Config::get('enso.flexible-content.rows.' . $this->getName() . '.selections'))) {
-            $default_selection_name = Config::get('enso.flexible-content.rows.' . $this->getName() . '.selections.' . $default_selection, $fallback);
+            $default_selection_name = Config::get('enso.flexible-content.rows.' . $this->getName() . '.selections.' . $field_name . '.' . $default_selection, $fallback);
         } else {
-            $default_selection_name = Config::get('enso.flexible-content.options.selections.' . $default_selection, $fallback);
+            $default_selection_name = Config::get('enso.flexible-content.options.selections.' . $field_name . '.' . $default_selection, $fallback);
         }
 
         return SelectField::makeOption(
