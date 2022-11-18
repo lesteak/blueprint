@@ -44,6 +44,7 @@ return [
 
     'rows' => [
         'button' => \App\Crud\Rows\ButtonRow::class,
+        'carousel' => \App\Crud\Rows\CarouselRow::class,
         'cta' => \App\Crud\Rows\CtaRow::class,
         'ctas' => \App\Crud\Rows\CtasRow::class,
         'enquirybutton' => \App\Crud\Rows\EnquiryButtonRow::class,
