@@ -4,12 +4,9 @@ namespace App\Crud\Fields;
 
 use App\Crud\Rows\ButtonRow;
 use Yadda\Enso\Crud\Forms\Fields\FlexibleContentField;
-use Yadda\Enso\Crud\Traits\FieldHasRowSpecs;
 
 class ButtonsField extends FlexibleContentField
 {
-    use FieldHasRowSpecs;
-
     public function __construct(string $name = 'main')
     {
         parent::__construct($name);

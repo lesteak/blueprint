@@ -14,6 +14,7 @@ class Page extends BaseCrud
     protected function defaultRowSpecs(): array
     {
         return [
+            \App\Crud\Rows\CtasRow::make(),
             \App\Crud\Rows\QuoteRow::make(),
             \App\Crud\Rows\TextImageRow::make(),
             \App\Crud\Rows\TextRow::make(),

@@ -32,7 +32,7 @@ class QuoteRow extends FlexibleContentSection
         parent::__construct($name);
 
         $this
-            ->excerptField('author')
+            ->excerptField('source')
             ->addFields([
                 TextField::make('title'),
                 WysiwygField::make('quote')
