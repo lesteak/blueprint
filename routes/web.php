@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,12 +14,7 @@
 |
 */
 
-Auth::routes();
-
-Route::group(['middleware' => 'enso'], function () {
-    EnsoCrud::crudRoutes('admin/pages', 'page', 'admin.pages');
-    Route::get('admin')->uses([\App\Http\Controllers\Admin\DashboardController::class, 'index']);
-});
+Auth::routes(['register' => false]);
 
 Route::group(['middleware' => 'holding-page'], function () {
     Route::get('/')->uses([\App\Http\Controllers\HomeController::class, 'index'])->name('home');
