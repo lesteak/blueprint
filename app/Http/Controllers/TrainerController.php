@@ -21,7 +21,7 @@ class TrainerController extends Controller
      */
     public function show(Trainer $trainer): \Illuminate\View\View
     {
-        $page = $this->usePage('trainer');
+        $page = $this->usePageAllowUnpublished('trainer');
 
         $meta = $trainer->getMeta();
 

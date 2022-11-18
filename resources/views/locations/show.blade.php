@@ -2,9 +2,9 @@
 
 @section('content')
 
-    <h1 class="sr-only">{{ $trainer->name }}</h1>
+    <h1 class="sr-only">{{ $location->name }}</h1>
 
-    @flexibleField($trainer, 'content', 'content')
+    @flexibleField($location, 'content', 'content')
 
     @flexibleField($page, 'content', 'content')
 

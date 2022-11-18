@@ -23,6 +23,10 @@ Route::middleware(['holding-page', 'globalscopes'])->group(function () {
     // Duplicate route for post-login/register redirection
     Route::get('home')->uses([\App\Http\Controllers\HomeController::class, 'redirect']);
 
+    Route::prefix('locations')->name('locations.')->group(function () {
+        Route::get('{location}')->uses([\App\Http\Controllers\LocationController::class, 'show'])->name('show');
+    });
+
     Route::prefix('trainers')->name('trainers.')->group(function () {
         Route::get('{trainer}')->uses([\App\Http\Controllers\TrainerController::class, 'show'])->name('show');
     });
