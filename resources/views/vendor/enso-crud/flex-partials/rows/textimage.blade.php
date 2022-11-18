@@ -6,6 +6,7 @@
    *   ->row_type - string - 'textimage'
    *   ->alignment, string - left|right
    *   ->buttons, Collection - items which consist of:
+   *     ->button_components - array of true\false options: ['pointy']
    *     ->label - string
    *     ->hover - string - if not set, use the label as the hover tooltip
    *     ->link - string

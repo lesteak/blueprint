@@ -2,6 +2,7 @@
 
 namespace App\Crud\Rows;
 
+use App\Crud\Traits\HasComponents;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\URL;
 use Yadda\Enso\Crud\Forms\Fields\SelectField;
@@ -11,6 +12,8 @@ use Yadda\Enso\Crud\Handlers\FlexibleRow;
 
 class ButtonRow extends FlexibleContentSection
 {
+    use HasComponents;
+
     /**
      * Regex pattern to determins if a given url is a valid url.
      *
@@ -37,10 +40,13 @@ class ButtonRow extends FlexibleContentSection
             ->addFields([
                 TextField::make('label')
                     ->setLabel('Text')
-                    ->addFieldsetClass('is-6'),
+                    ->addFieldsetClass('is-5'),
                 TextField::make('hover')
                     ->setLabel('Hover Text')
-                    ->addFieldsetClass('is-6'),
+                    ->addFieldsetClass('is-5'),
+                static::componentsField('button_components')
+                    ->setLabel('Modifiers')
+                    ->addFieldsetClass('is-2'),
                 TextField::make('link')
                     ->setLabel('URL')
                     ->addFieldsetClass('is-9'),
@@ -69,22 +75,25 @@ class ButtonRow extends FlexibleContentSection
      */
     protected static function getRowContent(FlexibleRow $row): array
     {
+        $instance = static::make();
+
         $url = static::parseUrl($row->blockContent('link'));
 
-        $track_by = static::make()->getField('target')->getSetting('track_by');
+        $track_by = $instance->getField('target')->getSetting('track_by');
 
         $target = Arr::get($row->blockContent('target'), $track_by, 'auto') !== 'auto'
             ? Arr::get($row->blockContent('target'), $track_by, '_blank')
             : static::determineTarget($url);
 
         return [
-            'label' => $row->blockContent('label'),
+            'button_components' => $instance->getSelectedComponents($row, 'button_components'),
             'hover' => $row->blockContent('hover'),
+            'label' => $row->blockContent('label'),
             'link' => $url,
-            'target' => $target,
             'rel' => $target === '_blank'
                 ? 'noopener noreferrer'
                 : '',
+            'target' => $target,
         ];
     }
 
