@@ -6,6 +6,8 @@
 
     @flexibleField($page, 'header', 'header')
 
+    @include('pages.partials.classes-trainers-timetable-subnav')
+
     @flexibleField($page, 'content', 'content')
 
 @endsection

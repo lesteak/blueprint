@@ -2,10 +2,34 @@
 
 namespace App\Crud;
 
+use Yadda\Enso\Crud\Forms\Fields\FlexibleContentField;
+use Yadda\Enso\Crud\Forms\Form;
 use Yadda\Enso\Pages\Crud\Page as BaseCrud;
 
 class Page extends BaseCrud
 {
+    /**
+     * Default form configuration.
+     *
+     * @return \Yadda\Enso\Crud\Forms\Form
+     */
+    public function create(Form $form)
+    {
+        $form = parent::create($form);
+
+        $form->getSection('content')->addFieldAfter(
+            'excerpt',
+            FlexibleContentField::make('header')
+                ->addRowSpecs([
+                    \App\Crud\Rows\FullHeroRow::make(),
+                    \App\Crud\Rows\HeroRow::make(),
+                ])
+                ->setMaxRows(1)
+        );
+
+        return $form;
+    }
+
     /**
      * Array of Site-wide default row specs.
      *
