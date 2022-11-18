@@ -21,5 +21,5 @@
    *     ->optoins - array
    *     ->type - string - vimeo|youtube
    */
-  $row_data = \App\Crud\Rows\TextVideoRow::unpack($row);
+  $row_data = $row->unpack();
 @endphp

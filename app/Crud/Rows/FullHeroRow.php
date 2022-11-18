@@ -69,6 +69,9 @@ class FullHeroRow extends FlexibleContentSection
             'buttons' => static::make()->getFlexibleContentFieldContent('buttons', $row),
             'content' => static::getWysiwygHtml($row->getBlocks(), 'content'),
             'desktop_image' => $desktop_image ?? $mobile_image,
+            'divider' => [  // Full Hero always has a bottom divider.
+                'bottom' => true,
+            ],
             'mobile_image' => $mobile_image ?? $desktop_image,
             'title' => $row->block('title') ? $row->blockContent('title') : '',
         ];

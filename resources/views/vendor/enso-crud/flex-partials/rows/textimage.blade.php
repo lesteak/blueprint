@@ -16,5 +16,5 @@
    *   ->image - ImageFile|null
    *   ->title - string
    */
-  $row_data = \App\Crud\Rows\TextImageRow::unpack($row);
+  $row_data = $row->unpack();
 @endphp

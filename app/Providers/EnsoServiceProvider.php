@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Crud\Handlers\FlexibleField;
 use Illuminate\Support\ServiceProvider;
+use Yadda\Enso\Crud\Contracts\FlexibleFieldHandler;
 
 class EnsoServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,7 @@ class EnsoServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+                $this->app->bind(FlexibleFieldHandler::class, FlexibleField::class);
     }
 
     /**

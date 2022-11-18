@@ -12,5 +12,5 @@
    * the row unpacking process will have already copied the desktop_image to
    * the mobile_image property.
    */
-  $row_data = \App\Crud\Rows\HeroRow::unpack($row);
+  $row_data = $row->unpack();
 @endphp

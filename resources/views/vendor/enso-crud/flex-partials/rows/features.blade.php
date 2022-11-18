@@ -16,5 +16,5 @@
    *     ->title - string
    *   ->title - string
    */
-  $row_data = \App\Crud\Rows\FeaturesRow::unpack($row);
+  $row_data = $row->unpack();
 @endphp

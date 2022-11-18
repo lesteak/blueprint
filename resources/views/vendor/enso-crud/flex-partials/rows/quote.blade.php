@@ -8,5 +8,5 @@
    *   ->source - string
    *   ->title - string
    */
-  $row_data = \App\Crud\Rows\QuoteRow::unpack($row);
+  $row_data = $row->unpack();
 @endphp
