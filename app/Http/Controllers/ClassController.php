@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ClassModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 use Yadda\Enso\Crud\Traits\UsesPage;
 use Yadda\Enso\Facades\EnsoMeta;
@@ -21,6 +22,10 @@ class ClassController extends Controller
      */
     public function show(ClassModel $class): \Illuminate\View\View
     {
+        if (!Gate::allows('view', $class)) {
+            abort(404);
+        }
+
         $page = $this->usePageAllowUnpublished('class');
 
         $meta = $class->getMeta();
