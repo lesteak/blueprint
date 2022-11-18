@@ -15,6 +15,7 @@ class Page extends BaseCrud
     {
         return [
             \App\Crud\Rows\CtasRow::make(),
+            \App\Crud\Rows\FeaturesRow::make(),
             \App\Crud\Rows\QuoteRow::make(),
             \App\Crud\Rows\TextImageRow::make(),
             \App\Crud\Rows\TextRow::make(),
