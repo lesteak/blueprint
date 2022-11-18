@@ -2,7 +2,6 @@
 
 namespace App\Crud\Fields;
 
-use App\Crud\Rows\ButtonRow;
 use Yadda\Enso\Crud\Forms\Fields\FlexibleContentField;
 
 class ButtonsField extends FlexibleContentField
@@ -38,8 +37,10 @@ class ButtonsField extends FlexibleContentField
     protected function getButtonDefinitions(): array
     {
         return [
-            ButtonRow::make('button')
+            \App\Crud\Rows\ButtonRow::make('button')
                 ->setLabel('Button')
+                ->withoutCommon(),
+            \App\Crud\Rows\EnquiryButtonRow::make()
                 ->withoutCommon(),
         ];
     }
