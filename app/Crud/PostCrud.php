@@ -2,6 +2,7 @@
 
 namespace App\Crud;
 
+use App\Crud\Filters\CategoryFilter;
 use Yadda\Enso\Blog\Crud\Post;
 use Yadda\Enso\Crud\Contracts\Config\IsPublishable as ConfigIsPublishable;
 use Yadda\Enso\Crud\Forms\Fields\BelongsToManyField;
@@ -66,10 +67,13 @@ class PostCrud extends Post implements ConfigIsPublishable
                 'main.template' => 'required',
             ])
             ->filters([
-                'search' => \Yadda\Enso\Blog\Crud\Filters\PostFilter::make(),
+                'category' => \App\Crud\Filters\CategoryFilter::make()
+                    ->label('Category')
+                    ->relationshipName('categories'),
                 'user' => \Yadda\Enso\Crud\Filters\UserFilter::make()
                     ->label('Author')
                     ->relationshipName('user'),
+                'search' => \App\Crud\Filters\ArticleFilter::make(),
             ]);
     }
 

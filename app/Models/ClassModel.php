@@ -37,6 +37,7 @@ class ClassModel extends Model implements ContractsIsCrudModel, ModelIsPublishab
      * @var array
      */
     protected $casts = [
+        'category_id' => 'integer',
         'content' => 'array',
         'hero_image_id' => 'integer',
         'published' => 'boolean',
@@ -50,6 +51,7 @@ class ClassModel extends Model implements ContractsIsCrudModel, ModelIsPublishab
      * @var array
      */
     protected $fillable = [
+        'category_id',
         'content',
         'hero_image_id',
         'name',
@@ -65,6 +67,16 @@ class ClassModel extends Model implements ContractsIsCrudModel, ModelIsPublishab
      * @var string
      */
     protected $table = 'classes';
+
+    /**
+     * Category of this class
+     *
+     * @return BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(EnsoCrud::modelClass('category'), 'category_id');
+    }
 
     /**
      * Gets the name of the 'Publish At' DateTime column on this publishable

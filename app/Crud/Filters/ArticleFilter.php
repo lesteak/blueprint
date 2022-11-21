@@ -4,7 +4,7 @@ namespace App\Crud\Filters;
 
 use Yadda\Enso\Crud\Filters\BaseFilters\TextFilter;
 
-class ClassFilter extends TextFilter
+class ArticleFilter extends TextFilter
 {
     /**
      * Columns to search in
@@ -12,8 +12,8 @@ class ClassFilter extends TextFilter
      * @var array
      */
     protected $columns = [
-        'classes.name',
-        'classes.slug',
+        'enso_posts.title',
+        'enso_posts.slug',
     ];
 
     /**
@@ -30,6 +30,6 @@ class ClassFilter extends TextFilter
      */
     protected $props = [
         'placeholder' => 'Search...',
-        'help-text' => 'Class\' name or slug',
+        'help-text' => 'Article\'s title or slug',
     ];
 }

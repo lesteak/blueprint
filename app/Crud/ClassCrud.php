@@ -5,10 +5,12 @@ namespace App\Crud;
 use App\Crud\Rows\TextRow;
 use Yadda\Enso\Crud\Config;
 use Yadda\Enso\Crud\Contracts\Config\IsPublishable as ConfigIsPublishable;
+use Yadda\Enso\Crud\Forms\Fields\BelongsToField;
 use Yadda\Enso\Crud\Forms\Fields\BelongsToManyField;
 use Yadda\Enso\Crud\Forms\Fields\DateTimeField;
 use Yadda\Enso\Crud\Forms\Fields\FileUploadFieldResumable;
 use Yadda\Enso\Crud\Forms\Fields\FlexibleContentField;
+use Yadda\Enso\Crud\Forms\Fields\SelectField;
 use Yadda\Enso\Crud\Forms\Fields\SlugField;
 use Yadda\Enso\Crud\Forms\Fields\TextField;
 use Yadda\Enso\Crud\Forms\Form;
@@ -39,6 +41,9 @@ class ClassCrud extends Config implements ConfigIsPublishable
                 'trainer' => \App\Crud\Filters\TrainerFilter::make()
                     ->label('Trainer')
                     ->relationshipName('trainers'),
+                'category' => \App\Crud\Filters\CategoryFilter::make()
+                    ->label('Category')
+                    ->relationshipName('category'),
                 'search' => \App\Crud\Filters\ClassFilter::make(),
             ])
             ->rules([
@@ -56,7 +61,11 @@ class ClassCrud extends Config implements ConfigIsPublishable
                     FileUploadFieldResumable::make('heroImage')
                         ->addFieldsetClass('is-half'),
                     DateTimeField::make('publish_at'),
-                    TextField::make('name'),
+                    TextField::make('name')
+                        ->addFieldsetClass('is-three-quarters'),
+                    BelongsToField::make('category')
+                        ->useAjax(route('admin.categories.index'), EnsoCrud::modelClass('category'))
+                        ->addFieldsetClass('is-one-quarter'),
                     SlugField::make('slug'),
                 ]),
             Section::make('content')

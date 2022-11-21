@@ -110,6 +110,7 @@ class ClassController extends Controller
     {
         $query = EnsoCrud::query('class')
             ->with([
+                'category',
                 'locations',
                 'thumbnail',
                 'trainers',

@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\CategoryResource;
 use App\Http\Resources\ImageResource;
 use App\Http\Resources\LocationListResource;
 use App\Http\Resources\TrainerListResource;
@@ -18,6 +19,9 @@ class ClassListResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'category' => $this->whenLoaded('category', function () {
+                return CategoryResource::make($this->category);
+            }),
             'locations' => $this->whenLoaded('locations', function () {
                 return LocationListResource::collection($this->locations);
             }),
