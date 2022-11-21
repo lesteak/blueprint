@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Yadda\Enso\Blog\Facades\EnsoBlog;
+use Yadda\Enso\Newsletter\Facades\EnsoNewsletter;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::middleware(['holding-page', 'globalscopes'])->group(function () {
     Route::prefix('trainers')->name('trainers.')->group(function () {
         Route::get('{trainer}')->uses([\App\Http\Controllers\TrainerController::class, 'show'])->name('show');
     });
+
+    EnsoNewsletter::routes();
 
     EnsoBlog::routes('articles', Yadda\Enso\Blog\Controllers\PostController::class, 'articles');
 
