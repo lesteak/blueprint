@@ -32,8 +32,11 @@ class TrainersRow extends FlexibleContentSection
             ->setLabel('Trainers')
             ->excerptField('title')
             ->addFields([
-                TextField::make('title')
-                    ->addFieldsetClass('is-half'),
+                TextField::make('title'),
+                SelectField::make('class')
+                    ->useAjax(route('admin.classes.index'), EnsoCrud::modelClass('class'))
+                    ->addFieldsetClass('is-half')
+                    ->setHelpText('Fill this in to limit the displayed trainers to only those who teach this class'),
                 SelectField::make('location')
                     ->useAjax(route('admin.locations.index'), EnsoCrud::modelClass('location'))
                     ->addFieldsetClass('is-half')
@@ -50,9 +53,11 @@ class TrainersRow extends FlexibleContentSection
     {
         $instance = new static();
 
+        $class_id = Arr::get($row->blockContent('class'), $instance->getField('class')->getSetting('track_by'), null);
         $location_id = Arr::get($row->blockContent('location'), $instance->getField('location')->getSetting('track_by'), null);
 
         return [
+            'class' => $class_id ? EnsoCrud::modelClass('class')::find($class_id) : null,
             'location' => $location_id ? EnsoCrud::modelClass('location')::find($location_id) : null,
             'title' => $row->blockContent('title'),
         ];
