@@ -43,6 +43,7 @@ class Page extends BaseCrud
             \App\Crud\Rows\ClassesRow::make(),
             \App\Crud\Rows\CtasRow::make(),
             \App\Crud\Rows\FeaturesRow::make(),
+            \App\Crud\Rows\ImageRow::make(),
             \App\Crud\Rows\LocationsRow::make(),
             \App\Crud\Rows\QuoteRow::make(),
             \App\Crud\Rows\TextImageRow::make(),

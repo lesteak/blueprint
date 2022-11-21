@@ -136,6 +136,8 @@ class PostCrud extends Post implements ConfigIsPublishable
     protected function defaultRowSpecs(): array
     {
         return [
+            \App\Crud\Rows\ImageRow::make(),
+            \App\Crud\Rows\QuoteRow::make(),
             \App\Crud\Rows\TextRow::make(),
         ];
     }

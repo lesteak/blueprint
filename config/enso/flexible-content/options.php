@@ -60,6 +60,7 @@ return [
         'features' => \App\Crud\Rows\FeaturesRow::class,
         'fullhero' => \App\Crud\Rows\FullHeroRow::class,
         'hero' => \App\Crud\Rows\HeroRow::class,
+        'image' => \App\Crud\Rows\ImageRow::class,
         'locations' => \App\Crud\Rows\LocationsRow::class,
         'quote' => \App\Crud\Rows\QuoteRow::class,
         'text' => \App\Crud\Rows\TextRow::class,
