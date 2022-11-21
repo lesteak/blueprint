@@ -28,8 +28,8 @@ class TrainerListResource extends JsonResource
             'slug' => $this->slug,
             'thumbnail' => $this->whenLoaded('thumbnail', function () {
                 return ImageResource::make($this->thumbnail, [
-                    'grid_item',
-                    'grid_item_2x',
+                    'grid_square',
+                    'grid_square_2x',
                 ]);
             }),
             'url' => route('trainers.show', $this->slug),

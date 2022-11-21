@@ -22,6 +22,8 @@ return [
         '1024_x' => [1024, null],
         'grid_item' => [460, 306],
         'grid_item_2x' => [920, 612],
+        'grid_square' => [460, 460],
+        'grid_square_2x' => [920, 920],
     ],
 
     /**
