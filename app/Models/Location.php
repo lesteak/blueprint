@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Arr;
 use Yadda\Enso\Crud\Contracts\IsCrudModel as ContractsIsCrudModel;
 use Yadda\Enso\Crud\Contracts\Model\IsPublishable as ModelIsPublishable;
 use Yadda\Enso\Crud\Traits\HasFlexibleFields;
@@ -30,6 +31,7 @@ class Location extends Model implements ContractsIsCrudModel, ModelIsPublishable
     protected $attributes = [
         'content' => '[]',
         'description_json' => '[]',
+        'geo' => '[]',
     ];
 
     /**
@@ -40,7 +42,7 @@ class Location extends Model implements ContractsIsCrudModel, ModelIsPublishable
     protected $casts = [
         'content' => 'array',
         'description_json' => 'array',
-        'hero_image_id' => 'integer',
+        'geo' => 'array',
         'published' => 'boolean',
         'publish_at' => 'datetime',
         'thumbnail_id' => 'integer',
@@ -57,8 +59,8 @@ class Location extends Model implements ContractsIsCrudModel, ModelIsPublishable
         'description',
         'description_json',
         'email',
+        'geo',
         'glowfox_id',
-        'hero_image_id',
         'name',
         'phone',
         'published',
@@ -75,6 +77,26 @@ class Location extends Model implements ContractsIsCrudModel, ModelIsPublishable
     public function classes(): BelongsToMany
     {
         return $this->belongsToMany(EnsoCrud::modelClass('class'), 'class_location', 'location_id', 'class_id');
+    }
+
+    /**
+     * Gets the Geolocation latitude for this Location.
+     *
+     * @return float|null
+     */
+    public function getLat(): ?float
+    {
+        return Arr::get($this->geo, 'location.lat', null);
+    }
+
+    /**
+     * Gets the Geolocation longitude for this Location.
+     *
+     * @return float|null
+     */
+    public function getLng(): ?float
+    {
+        return Arr::get($this->geo, 'location.lng', null);
     }
 
     /**
@@ -110,13 +132,14 @@ class Location extends Model implements ContractsIsCrudModel, ModelIsPublishable
     }
 
     /**
-     * Hero image for this Location
+     * Whether this Location has a geolocation set. We assume that 0,0 is NOT a
+     * valid location for this purpose.
      *
-     * @return BelongsTo
+     * @return bool
      */
-    public function heroImage(): BelongsTo
+    public function hasGeoLocation(): bool
     {
-        return $this->belongsTo(Helpers::getConcreteClass(ImageFile::class), 'hero_image_id');
+        return !empty($this->getLat()) && !empty($this->getLng());
     }
 
     /**

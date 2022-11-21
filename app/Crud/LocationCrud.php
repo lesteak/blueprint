@@ -9,6 +9,7 @@ use Yadda\Enso\Crud\Forms\Fields\BelongsToManyField;
 use Yadda\Enso\Crud\Forms\Fields\DateTimeField;
 use Yadda\Enso\Crud\Forms\Fields\FileUploadFieldResumable;
 use Yadda\Enso\Crud\Forms\Fields\FlexibleContentField;
+use Yadda\Enso\Crud\Forms\Fields\GeoField;
 use Yadda\Enso\Crud\Forms\Fields\SlugField;
 use Yadda\Enso\Crud\Forms\Fields\TextareaField;
 use Yadda\Enso\Crud\Forms\Fields\TextField;
@@ -55,7 +56,7 @@ class LocationCrud extends Config implements ConfigIsPublishable
                 ->addFields([
                     FileUploadFieldResumable::make('thumbnail')
                         ->addFieldsetClass('is-half'),
-                    FileUploadFieldResumable::make('heroImage')
+                    GeoField::make('geo')
                         ->addFieldsetClass('is-half'),
                     DateTimeField::make('publish_at'),
                     TextField::make('name')
