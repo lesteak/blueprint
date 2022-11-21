@@ -47,6 +47,7 @@ class Page extends BaseCrud
             \App\Crud\Rows\TextImageRow::make(),
             \App\Crud\Rows\TextRow::make(),
             \App\Crud\Rows\TextVideoRow::make(),
+            \App\Crud\Rows\TrainersRow::make(),
         ];
     }
 }

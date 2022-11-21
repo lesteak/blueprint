@@ -64,6 +64,7 @@ return [
         'text' => \App\Crud\Rows\TextRow::class,
         'textimage' => \App\Crud\Rows\TextImageRow::class,
         'textvideo' => \App\Crud\Rows\TextVideoRow::class,
+        'trainers' => \App\Crud\Rows\TrainersRow::class,
     ],
 
 ];
