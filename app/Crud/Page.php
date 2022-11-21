@@ -40,6 +40,7 @@ class Page extends BaseCrud
         return [
             \App\Crud\Rows\ArticlesRow::make(),
             \App\Crud\Rows\CarouselRow::make(),
+            \App\Crud\Rows\ClassesRow::make(),
             \App\Crud\Rows\CtasRow::make(),
             \App\Crud\Rows\FeaturesRow::make(),
             \App\Crud\Rows\QuoteRow::make(),

@@ -2,7 +2,6 @@
 
 namespace App\Crud;
 
-use App\Crud\Rows\TextRow;
 use Illuminate\Support\Facades\Config as ConfigFacade;
 use Yadda\Enso\Crud\Config;
 use Yadda\Enso\Crud\Contracts\Config\IsPublishable as ConfigIsPublishable;
@@ -63,7 +62,8 @@ class LocationCrud extends Config implements ConfigIsPublishable
                         ->addFieldsetClass('is-two-thirds'),
                     TextField::make('glowfox_id')
                         ->addFieldsetClass('is-one-third'),
-                    SlugField::make('slug'),
+                    SlugField::make('slug')
+                        ->setRoute(route('locations.show', '%SLUG%')),
                     WysiwygField::make('description')
                         ->setModules(ConfigFacade::get('enso.crud.' . EnsoCrud::crudName($this) . '.modules', []))
                         ->addFieldsetClass('is-half'),
@@ -78,7 +78,8 @@ class LocationCrud extends Config implements ConfigIsPublishable
                 ->addFields([
                     FlexibleContentField::make('content')
                         ->addRowSpecs([
-                            TextRow::make(),
+                            \App\Crud\Rows\TextRow::make(),
+                            \App\Crud\Rows\ClassesRow::make(),
                         ]),
                 ]),
             Section::make('relationships')
