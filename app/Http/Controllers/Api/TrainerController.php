@@ -26,9 +26,11 @@ class TrainerController extends Controller
 
         $query = $this->getIndexQuery($request);
 
-        return TrainerListResource::collection(
-            $query->paginate($request->get('per_page', static::DEFAULT_PER_PAGE))
-        )->toResponse($request);
+        $results = ($request->input('per_page') === 'all')
+            ? $query->get()
+            : $query->paginate(intval($request->input('per_page', static::DEFAULT_PER_PAGE)));
+
+        return TrainerListResource::collection($results)->toResponse($request);
     }
 
     /**
