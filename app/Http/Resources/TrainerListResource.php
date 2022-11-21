@@ -2,6 +2,9 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\ClassListResource;
+use App\Http\Resources\ImageResource;
+use App\Http\Resources\LocationListResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class TrainerListResource extends JsonResource
@@ -14,6 +17,22 @@ class TrainerListResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'classes' => $this->whenLoaded('classes', function () {
+                return ClassListResource::collection($this->classes);
+            }),
+            'locations' => $this->whenLoaded('locations', function () {
+                return LocationListResource::collection($this->locations);
+            }),
+            'name' => $this->name,
+            'slug' => $this->slug,
+            'thumbnail' => $this->whenLoaded('thumbnail', function () {
+                return ImageResource::make($this->thumbnail, [
+                    'grid_item',
+                    'grid_item_2x',
+                ]);
+            }),
+            'url' => route('trainers.show', $this->slug),
+        ];
     }
 }

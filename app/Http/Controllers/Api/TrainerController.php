@@ -106,7 +106,12 @@ class TrainerController extends Controller
      */
     public function getIndexQuery(Request $request): \Illuminate\Database\Eloquent\Builder
     {
-        $query = EnsoCrud::query('trainer');
+        $query = EnsoCrud::query('trainer')
+            ->with([
+                'classes',
+                'locations',
+                'thumbnail',
+            ]);
 
         $query->when($request->filled('class'), function  ($query) use ($request) {
             $query->whereHas('classes', function ($query) use ($request) {
