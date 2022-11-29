@@ -12,7 +12,7 @@
     @include('enso-analytics::body')
     <div id="app" class="flex flex-grow min-h-screen flex-col">
       @include('parts.nav')
-      <div class="flex-grow flex-shrink-0">
+      <div class="mt-20 flex-grow flex-shrink-0">
         @yield('content')
       </div>
       @include('parts.footer')
