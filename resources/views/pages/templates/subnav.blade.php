@@ -10,4 +10,9 @@
 
     @flexibleField($page, 'content', 'content')
 
+    <section class="max-w-screen-2xl m-auto p-10">
+        <h2>More</h2>
+        <more-links></more-links>
+    </section>
+
 @endsection
