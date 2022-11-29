@@ -11,7 +11,7 @@ $image = collect(EnsoSettings::get('location_footer_image')[0]);
 @endphp
 
 <footer>
-  <section class="max-w-7xl my-20 m-auto flex w-full flex-col">
+  <section class="max-w-screen-2xl m-auto p-10 my-20 flex w-full flex-col">
     <div
       class="
         grid

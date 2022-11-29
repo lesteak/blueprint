@@ -9,4 +9,15 @@
    *   ->title - string
    */
   $row_data = $row->unpack();
+  //dd($row_data);
+  $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
 @endphp
+
+<section id="{{ $row_id }}" class="max-w-screen-2xl m-auto p-10">
+  <h2 class="text-8xl">{{ $row_data->title }}</h2>
+  <trainer-index
+    :classType='@json($row_data->class)'
+    :location='@json($row_data->location)'
+  ></trainer-index>
+</section>
+

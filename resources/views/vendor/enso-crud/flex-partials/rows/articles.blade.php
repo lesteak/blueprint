@@ -12,9 +12,10 @@
    */
   $row_data = $row->unpack();
   //dd($row_data);
-@endphp
-
-<section id="{{ $row_data->row_id }}" class="p-10">
+  $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
+  @endphp
+  
+  <section id="{{ $row_id }}" class="max-w-screen-2xl m-auto p-10">
   <div>
     <h2>{{ $row_data->title }}</h2>
     <div class="[&>p]:text-black">

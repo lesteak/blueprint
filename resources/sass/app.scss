@@ -103,7 +103,7 @@
     justify-content: center;
     align-items: center;
     height: 50px;
-    background-color: #1b3377;
+    background-color: red;
     @apply text-white;
     @apply uppercase;
     @apply font-medium;
@@ -119,6 +119,10 @@
     text-indent: -9999px;
     border-right: 20px solid transparent;
     border-top: 50px solid #1b3377;
+  }
+  .sign-post:hover::after {
+    --tw-bg-opacity: 1;
+    border-color: red;
   }
 
   .sign-post__grey {

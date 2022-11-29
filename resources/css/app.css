@@ -123,6 +123,10 @@
     border-right: 20px solid transparent;
     border-top: 50px solid #1b3377;
   }
+  .sign-post:hover::after {
+    border-right: 20px solid transparent;
+    border-top: 50px solid rgb(55 65 81 / 1);
+  }
 
   .sign-post__grey {
     position: relative;

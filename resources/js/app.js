@@ -6,7 +6,8 @@ import BlogIndex from './enso/blog/components/BlogIndex.vue';
 import MoreLinks from './components/more/More.vue';
 import ArticleIndex from './components/articles/ArticleIndex.vue';
 import ClassesIndex from './components/classes/ClassesIndex.vue';
-import LocationIndex from './components/locations/LocationIndex.vue'
+import LocationIndex from './components/locations/LocationIndex.vue';
+import TrainerIndex from './components/trainers/TrainerIndex.vue';
 
 new Vue({
   el: '#app',
@@ -17,6 +18,7 @@ new Vue({
     MoreLinks,
     ArticleIndex,
     ClassesIndex,
-    LocationIndex
+    LocationIndex,
+    TrainerIndex
   },
 });
