@@ -10,4 +10,14 @@
    *   ->trainer - Trainer|null
    */
   $row_data = $row->unpack();
+  $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
 @endphp
+
+<section id="{{ $row_id }}" class="max-w-screen-2xl m-auto p-10">
+  <h2>{{ $row_data->title }}</h2>
+  <classes-index
+    :category_group="{{ $row_data->group_by_category }}"
+    :location='@json($row_data->location)'
+    :trainer='@json($row_data->trainer)'
+  ></classes-index>
+</section>
