@@ -5,7 +5,7 @@ $footer_more = \Yadda\Enso\SiteMenus\Facades\SiteMenu::get('footer-menu');
 $menus = new \Illuminate\Support\Collection([$footer_locations, $footer_more]);
 
 $button = collect(EnsoSettings::get('location_footer_button'));
-$image = collect(EnsoSettings::get('location_footer_image')[0]);
+//$image = collect(EnsoSettings::get('location_footer_image')[0]);
 //dd($image);
 
 @endphp
