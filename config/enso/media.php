@@ -14,6 +14,7 @@ return [
         'hero_mobile' => [768, 768],
         'hero_mobile_2x' => [1536, 1536],
         'post_hero' => [960, 640],
+        'trainer_location_hero' => [640, 720]   ,
         '16_9_1920' => [1920, 1080],
         '480_x' => [480, null],
         '768_x' => [768, null],
