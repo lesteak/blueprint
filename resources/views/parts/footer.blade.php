@@ -42,7 +42,7 @@ $button = collect(EnsoSettings::get('location_footer_button'));
           {{--  <x-button-group :buttons="$button" class="mt-8"></x-button-group>  --}}
         @endif
       </div>
-      <img
+      {{--  <img
         class="
           order-1
           md:order-2
@@ -51,7 +51,7 @@ $button = collect(EnsoSettings::get('location_footer_button'));
           w-full
         "
         src="{{ $image['preview'] }}"
-        alt="Our Locations">
+        alt="Our Locations">  --}}
     </div>
   </section>
 
