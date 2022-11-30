@@ -14,7 +14,7 @@
   }
 
   p {
-    @apply text-[#bdbfca];
+    @apply text-brand-grey-500;
   }
 
   h1 {

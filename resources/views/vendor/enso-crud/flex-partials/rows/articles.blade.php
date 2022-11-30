@@ -15,17 +15,18 @@
   $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
   @endphp
   
-  <section id="{{ $row_id }}" class="max-w-screen-2xl m-auto p-10">
-  <div>
+<section id="{{ $row_id }}" class="max-w-screen-2xl m-auto p-10 mt-20">
+  <div class="mb-10">
     <h2>{{ $row_data->title }}</h2>
     <div class="[&>p]:text-black">
       {!! $row_data->content !!}
     </div>
 
     @if ($row_data->articles->count() > 0)
-    <article-index :articles='@json($row_data->articles)'></article-index>
+    <article-index :preloaded_articles='@json($row_data->articles)' :more_content="{{ $row_data->more_content }}"></article-index>
     @else
       <p>No news is good news</p>
     @endif
   </div>
+
 </section>

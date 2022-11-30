@@ -1,21 +1,20 @@
 <template>
-  <div>
-    <div class="md:max-w-2xl mx-auto px-5 my-10 md:my-12">
-      <h1 class="text-4xl font-bold">Blog</h1>
-    </div>
-    <blog-category-list :category-url="categoryUrl" @select="onSelectCategory"></blog-category-list>
-    <blog-post-list :category="category"></blog-post-list>
+  <div class="max-w-screen-2xl m-auto p-10 mt-20">
+    <h1 class="text-8xl">Latest News</h1>
+    <article-index :more_content="'other'"></article-index>
   </div>
 </template>
 
 <script>
 import BlogCategoryList from './BlogCategoryList.vue';
 import BlogPostList from './BlogPostList.vue';
+import ArticleIndex from '../../../components/articles/ArticleIndex.vue';
 
 export default {
   components: {
     BlogCategoryList,
     BlogPostList,
+    ArticleIndex,
   },
 
   props: {

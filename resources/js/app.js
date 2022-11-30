@@ -8,6 +8,7 @@ import ArticleIndex from './components/articles/ArticleIndex.vue';
 import ClassesIndex from './components/classes/ClassesIndex.vue';
 import LocationIndex from './components/locations/LocationIndex.vue';
 import TrainerIndex from './components/trainers/TrainerIndex.vue';
+import Timetable from './components/timetable/Timetable.vue';
 
 new Vue({
   el: '#app',
@@ -19,6 +20,7 @@ new Vue({
     ArticleIndex,
     ClassesIndex,
     LocationIndex,
-    TrainerIndex
+    TrainerIndex,
+    Timetable
   },
 });
