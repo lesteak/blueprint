@@ -5,16 +5,16 @@
     'hoverColor' => null,
 ])
 
+
 @if ($buttons->isNotEmpty())
     <div {{ $attributes->merge(['class' => $wrapperClass]) }}>
         @foreach ($buttons as $button)
         @php
             $pointy = in_array("pointy", $button->button_components);
         @endphp
+
             @if($button->row_type === 'enquirybutton')
-                {{--  @include('vendor.enso-crud.flex-partials.rows.enquirybutton', [
-                    'color' => 'button button-outlined '.($color ?? $button->color).' hover:'.$hoverColor.' has-icon'
-                ])  --}}
+                @include('vendor.enso-crud.flex-partials.rows.enquirybutton')
             @else
                 <a
                     href="{{ $button->link }}"
