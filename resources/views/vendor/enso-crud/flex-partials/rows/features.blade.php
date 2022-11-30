@@ -33,7 +33,7 @@
         "
       >
         @if ($feature->image)
-          <picture class="w-full max-w-[480px]">
+          <picture class="w-full md:max-w-[480px]">
             <img
               class="w-full h-auto md:w-[480px] md:h-[480px]"
               src="{{ $feature->image->getResizeUrl('480_x', true) }}"
