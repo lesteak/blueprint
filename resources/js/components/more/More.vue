@@ -49,6 +49,12 @@
 
 <script>
 export default {
+  props: {
+    hide: {
+      type: String,
+      required: false,
+    }
+  },
   data() {
     return {
       cards: [
@@ -74,7 +80,7 @@ export default {
   mounted() {
     // Simple function to remove active item from array
     this.cards.forEach((card, index) => {
-      if (card.url === this.activePath) {
+      if (card.url === this.activePath || this.hide && card.url === this.hide) {
         this.cards.splice(index, 1);
       }
     })

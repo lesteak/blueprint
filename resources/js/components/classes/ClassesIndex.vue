@@ -7,15 +7,25 @@
       {{ classInstance }}
     </div> -->
     <category-list v-if="category_group && classes" :classCategories="classes"></category-list>
+    <div v-else class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid gap-5">
+      <class-card
+        v-for="(classInstance, index) in classes"
+        :key="index"
+        :classInstance="classInstance"
+      ></class-card>
+    </div>
   </div>
 </template>
 
 <script>
 import Api from "../../Services/api";
 import CategoryList from "./CategoryList.vue";
+import ClassCard from './ClassCard.vue';
+
 export default {
   components: {
     CategoryList,
+    ClassCard,
   },
   props: {
     category_group: {
@@ -38,7 +48,8 @@ export default {
   },
   methods: {
     load() {
-      Api.get("/api/classes")
+      let query = `?trainer=${this.trainer}`
+      Api.get(`/api/classes${query}`)
         .then(res => {
           this.classes = res.data.data
         })

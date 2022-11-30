@@ -17,7 +17,7 @@
 
   $background_style = $row_data->desktop_image
     ? 'background-image: url(' . $row_data->desktop_image->getResizeUrl('hero', true) . ')'
-    : "bg-red-500";
+    : "background-color:black";
 @endphp
 
 <section id="{{ $row_data->row_id }}">

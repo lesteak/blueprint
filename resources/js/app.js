@@ -10,6 +10,9 @@ import LocationIndex from './components/locations/LocationIndex.vue';
 import TrainerIndex from './components/trainers/TrainerIndex.vue';
 import Timetable from './components/timetable/Timetable.vue';
 
+import MapElement from './components/locations/Map.vue';
+import EnquiryButton from './components/enquiries/EnquiryButton.vue';
+
 new Vue({
   el: '#app',
   components: {
@@ -21,6 +24,8 @@ new Vue({
     ClassesIndex,
     LocationIndex,
     TrainerIndex,
-    Timetable
+    Timetable,
+    MapElement,
+    EnquiryButton
   },
 });
