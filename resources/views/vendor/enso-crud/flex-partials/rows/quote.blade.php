@@ -24,7 +24,7 @@
         {!! $row_data->quote !!}
       </blockquote>
       @if ($row_data->source)
-        <p class="text-right text-brand-grey-500">— {{ $row_data->source }} </p>
+        <p class="text-right text-brand-grey-500 mt-10">— {{ $row_data->source }} </p>
       @endif
     </div>
   </div>
