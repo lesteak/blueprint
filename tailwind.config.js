@@ -1,4 +1,5 @@
 module.exports = {
+  important: true,
   theme: {
     fontFamily: {
       sans: ['Miriam Libre', 'sans-serif'],

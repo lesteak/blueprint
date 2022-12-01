@@ -8,7 +8,7 @@ $menus = new \Illuminate\Support\Collection([$footer_locations, $footer_more]);
 
 <footer>
 
-  @include('parts.locations-footer');
+  @include('parts.locations-footer')
 
   <div
     class="

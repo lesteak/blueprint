@@ -21,5 +21,34 @@
    *     ->optoins - array
    *     ->type - string - vimeo|youtube
    */
-  $row_data = $row->unpack();
-@endphp
+   $row_data = $row->unpack();
+   //dd($row_data);
+   $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
+ @endphp
+ 
+ <section id="{{ $row_data->row_id }}" class="max-w-screen-2xl m-auto mt-20">
+   <div class="flex flex-col justify-center gap-20">
+       <div
+         class="
+           flex
+           flex-col
+           bg-brand-grey-500
+           {{ $row_data->alignment == 'left' ? 'md:flex-row' : 'md:flex-row-reverse' }}
+         "
+       >
+         @if ($row_data->video)
+         <div class="relative aspect-video">
+            @include('enso-fields::video-embed', [
+              'video' => $row_data->video,
+            ])
+          </div>
+         @endif
+         <div class="flex flex-col justify-center p-10 md:p-20 w-full">
+           <h2 class="text-white text-8xl">{{ $row_data->title }}</h2>
+           {!! $row_data->content !!}
+           <x-button-group :buttons="$row_data->buttons" class="mt-8"></x-button-group>
+         </div>
+       </div>
+   </div>
+ </section>
+ 

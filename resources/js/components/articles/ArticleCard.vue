@@ -8,7 +8,7 @@
         "
       >
         <img
-          :src="article.thumbnail.urls.default"
+          :src="article.thumbnail.urls.default || article.thumbnail.urls.post_thumbnail"
           :alt="article.thumbnail?.alt_text"
           class="
             w-full

@@ -77,7 +77,7 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
       @endif
       <button
         :class="{'is-active': menuVisible}"
-        class="hamburger hamburger--squeeze {{ $is_burger ? '' : 'md:hidden' }}"
+        class="hamburger hamburger--squeeze {{ $is_burger ? '' : 'md:hidden' }} px-5 z-50"
         @click="toggleMenu"
         type="button"
       >
