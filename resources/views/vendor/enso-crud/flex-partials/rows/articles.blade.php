@@ -23,7 +23,7 @@
     </div>
 
     @if ($row_data->articles->count() > 0)
-    <article-index :preloaded_articles='@json($row_data->articles)' :more_content="{{ $row_data->more_content }}"></article-index>
+    <article-index :preloaded_articles='@json($row_data->articles)' :more_content="'{{ $row_data->more_content }}'"></article-index>
     @else
       <p>No news is good news</p>
     @endif
