@@ -28,7 +28,11 @@
         class="
           flex
           flex-col
-          bg-brand-grey-500
+          bg-gradient-to-br
+          from-[#25272e]
+          to-brand-grey-500
+          md:mx-5
+          mx-10
           {{ $feature->alignment == 'left' ? 'md:flex-row' : 'md:flex-row-reverse' }}
         "
       >
@@ -43,7 +47,7 @@
         @endif
         <div class="flex flex-col justify-center p-10 md:p-20 w-full">
           <h2 class="text-white text-8xl">{{ $feature->title }}</h2>
-          {!! $feature->content !!}
+          <div class="[&>p]:text-white text-lg">{!! $feature->content !!}</div>
           <x-button-group :buttons="$feature->buttons" class="mt-8"></x-button-group>
         </div>
       </div>
