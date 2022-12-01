@@ -34,8 +34,10 @@
   <div class="relative h-screen p-10 bg-center bg-cover" style="{{ $background_style }}">
     <div class="max-w-screen-2xl m-auto flex flex-col justify-center h-full">
       <div class="w-full md:w-1/2">
-        <h1 class="text-white">{{ $row_data->title }}</h1>
-        {!! $row_data->content !!}
+        <h1 class="text-white text-10xl pr-4">{{ $row_data->title }}</h1>
+        <div class="[&>P]:text-brand-grey-100 [&>P]:text-lg">
+          {!! $row_data->content !!}
+        </div>
         <x-button-group :buttons="$row_data->buttons" class="mt-8"></x-button-group>
       </div>
       <div class="w-full md:w-1/2">
