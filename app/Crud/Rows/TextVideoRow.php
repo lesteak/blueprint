@@ -69,8 +69,8 @@ class TextVideoRow extends FlexibleContentSection
             'content' => static::getWysiwygHtml($row->getBlocks(), 'content'),
             'image' => $row->block('image') ? $row->blockContent('image')->first() : null,
             'title' => $row->blockContent('title'),
-            'video' => ($row->block('vide') && Arr::get($row->blockContent('video'), 'id'))
-                ? ((array)Arr::get($row->blockContent('video'), 'id'))
+            'video' => ($row->block('video') && Arr::get($row->blockContent('video'), 'id'))
+                ? ((array)$row->blockContent('video'))
                 : null,
         ];
     }
