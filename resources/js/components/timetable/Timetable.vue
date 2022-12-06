@@ -32,6 +32,14 @@ export default {
       type: String,
       required: true,
     },
+    trainerId: {
+      type: String,
+      required: false,
+    },
+    classId: {
+      type: String,
+      required: false,
+    },
     locations: {
       type: Array,
       required: false,
@@ -47,9 +55,32 @@ export default {
   },
   methods: {
     test() {
+      const params = {
+        // header: [
+        //   "classes",
+        //   "memberships",
+        //   "trainers",
+        //   "facilities",
+        // ],
+      };
+
+      if (this.trainerId) {
+        params.filters_trainers = this.trainerId;
+      }
+      if (this.classId) {
+        params.filters_classes = this.classId;
+      }
+
+      console.log(this.trainerId, params);
+
+      const queryString = new URLSearchParams(Object.entries(params));
+      console.log(queryString);
+
+      console.log("URL: ", `https://app.glofox.com/portal/#/branch/${this.locationId}/classes-week-view?${queryString}`);
+
       console.log("CLICKED");
       this.locationId = "6302ddec1f85c122836a5703";
-      this.$refs["iframe"].contentWindow.location.reload();
+      this.$refs["iframe"].contentWindow.location = `https://app.glofox.com/portal/#/branch/603301faca876728ed58a330/classes-day-view?filters_trainers=629869e2c1426b6fc81d00c7&header=classes`;
     }
   }
 }

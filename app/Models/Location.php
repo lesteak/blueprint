@@ -42,6 +42,7 @@ class Location extends Model implements ContractsIsCrudModel, ModelIsPublishable
     protected $casts = [
         'content' => 'array',
         'description_json' => 'array',
+        'hero_image_id' => 'integer',
         'geo' => 'array',
         'published' => 'boolean',
         'publish_at' => 'datetime',
@@ -67,6 +68,7 @@ class Location extends Model implements ContractsIsCrudModel, ModelIsPublishable
         'publish_at',
         'slug',
         'thumbnail_id',
+        'hero_image_id',
     ];
 
     /**
@@ -160,5 +162,15 @@ class Location extends Model implements ContractsIsCrudModel, ModelIsPublishable
     public function trainers(): BelongsToMany
     {
         return $this->belongsToMany(EnsoCrud::modelClass('trainer'), 'location_trainer', 'location_id', 'trainer_id');
+    }
+
+    /**
+     * Hero image for this Trainer
+     *
+     * @return BelongsTo
+     */
+    public function heroImage(): BelongsTo
+    {
+        return $this->belongsTo(Helpers::getConcreteClass(ImageFile::class), 'hero_image_id');
     }
 }

@@ -73,6 +73,8 @@ class ClassCrud extends Config implements ConfigIsPublishable
                     FlexibleContentField::make('content')
                         ->addRowSpecs([
                             TextRow::make(),
+                            \App\Crud\Rows\TextImageRow::make(),
+                            \App\Crud\Rows\TrainersRow::make(),
                         ]),
                 ]),
             Section::make('relationships')

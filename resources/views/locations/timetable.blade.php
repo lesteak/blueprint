@@ -1,5 +1,6 @@
 @php
     $location_id = "6302ddec1f85c122836a5703";
+    //dd($page, $location);
 @endphp
 @extends('layouts.app')
 
@@ -13,6 +14,6 @@
 
     @flexibleField($page, 'content', 'content')
 
-    <timetable :active-location-id="'{{ $location_id }}'"></timetable>
+    <timetable :active-location-id="'{{ $location->glowfox_id }}'" :trainer-id="'629869e2c1426b6fc81d00c7'"></timetable>
 
 @endsection

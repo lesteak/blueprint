@@ -20,7 +20,7 @@
   
   <script>
   import Api from "../../Services/api";
-  import Card from "../global/InfoCard.vue";
+  import Card from "./LocationCard.vue";
   export default {
     components: {
       Card,

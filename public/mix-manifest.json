@@ -13,5 +13,8 @@
     "/svg/file-download.svg": "/svg/file-download.svg",
     "/svg/instagram.svg": "/svg/instagram.svg",
     "/svg/logo.svg": "/svg/logo.svg",
-    "/svg/twitter.svg": "/svg/twitter.svg"
+    "/svg/twitter.svg": "/svg/twitter.svg",
+    "/svg/icon-address.svg": "/svg/icon-address.svg",
+    "/svg/icon-email.svg": "/svg/icon-email.svg",
+    "/svg/icon-phone.svg": "/svg/icon-phone.svg"
 }

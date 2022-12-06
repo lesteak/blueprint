@@ -40,9 +40,7 @@
       }
     },
     mounted () {
-      console.log("mounted: ", this.classCategories);
       this.categories = this.sortCategories(this.classCategories);
-      console.log("after mounted: ", this.categories);
     },
     methods: {
       sortCategories (classCategories) {

@@ -1,3 +1,6 @@
+@php
+  //dd($location);
+@endphp
 @extends('layouts.app')
 
 @section('content')
@@ -28,25 +31,70 @@
         py-40
         p-5
         md:flex-row
-        md:justify-between
         gap-5
         pt-20
         md:pt-40
       "
     >
-      <div class="md:w-6/12 w-full flex justify-center md:justify-between flex-col h-auto gap-5">
+      <div class="md:w-6/12 w-full flex justify-center md:justify-start flex-col h-auto gap-5">
         <div class="flex flex-col gap-5 px-5 border-b border-b-black/30">
           <h1 class="text-8xl">{{ $location->name }}</h1>
-          <p class="text-white text-base font-cabin tracking-widest uppercase pb-10">{{ $location->role }}</p>
+          @if ($location->role)
+            <p class="text-white text-base font-cabin tracking-widest uppercase pb-10">{{ $location->role }}</p>
+          @endif
+
+          @if ($location->description)
+            <div class="[&>p]:text-brand-grey-100 mb-10 text-lg">
+              {!! $location->description !!}
+            </div>
+          @endif
         </div>
-        
-        <div class="[&>p]:text-white">
-          @flexibleField($location, 'content', 'content')
-        </div>
+
+        <ul class="flex flex-col gap-10 mt-10 md:mt-20">
+          @if ($location->address)
+          <li class="flex gap-5">
+            <div class="bg-brand-grey-500 w-10 h-10 flex justify-center items-center aspect-square">
+              <img class="p-2.5" src="{{ asset('svg/icon-address.svg') }}" alt="Address Icon">
+            </div>
+            <dl>
+              <dt>address</dt>
+              <dd><address class="not-italic">{{ $location->address }}</address></dd>
+            </dl>
+          </li>
+          @endif
+          @if ($location->email)
+          <li class="flex gap-5">
+            <div class="bg-brand-grey-500 w-10 h-10 flex justify-center items-center aspect-square">
+              <img class="p-2.5" src="{{ asset('svg/icon-email.svg') }}" alt="Email Icon">
+            </div>
+            <dl>
+              <dt>email</dt>
+              <dd>{{ $location->email }}</dd>
+            </dl>
+          </li>
+          @endif
+          @if ($location->phone)
+          <li class="flex gap-5">
+            <div class="bg-brand-grey-500 w-10 h-10 flex justify-center items-center aspect-square">
+              <img class="p-2.5" src="{{ asset('svg/icon-phone.svg') }}" alt="Phone Icon">
+            </div>
+            <dl>
+              <dt>Whatsapp</dt>
+              <dd><a href="https://wa.me/{{ str_replace(' ', '', $location->phone) }}">{{ $location->phone }}</a></dd>
+            </dl>
+          </li>
+          @endif
+        </ul>
+
       </div>
 
       <div class="w-full md:w-6/12 flex justify-center aspect-square">
-        <map-element :geo='@json($location->geo)'></map-element>
+        <img
+          class="max-h-[720px] max-w-[640px] w-full h-auto object-contain aspect-square"
+          src="{{ $location->heroImage->getResizeUrl('trainer_location_hero', true) }}"
+          alt="Entrance of Setia City Mall location"
+        >
+        {{--  <map-element :geo='@json($location->geo)'></map-element>  --}}
       </div>
     </div>
 
@@ -76,6 +124,8 @@
       </svg>        
     </div>
     </div>
+
+    @flexibleField($location, 'content', 'content')
 
     @flexibleField($page, 'content', 'content')
 

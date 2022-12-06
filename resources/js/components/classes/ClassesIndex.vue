@@ -1,12 +1,6 @@
 <template>
   <div>
-    <!-- <div
-      v-for="classInstance in classes"
-      :key="classInstance.id"
-    >
-      {{ classInstance }}
-    </div> -->
-    <category-list v-if="category_group && classes" :classCategories="classes"></category-list>
+    <category-list v-if="category_group == true && classes" :classCategories="classes"></category-list>
     <div v-else class="grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid gap-5">
       <class-card
         v-for="(classInstance, index) in classes"
@@ -48,8 +42,17 @@ export default {
   },
   methods: {
     load() {
-      let query = `?trainer=${this.trainer}`
-      Api.get(`/api/classes${query}`)
+      const params = {};
+      if (this.trainer) {
+        params.trainer = this.trainer.slug;
+      }
+      if (this.location) {
+        params.location = this.location.slug;
+      }
+
+      const queryString = new URLSearchParams(Object.entries(params));
+
+      Api.get(`/api/classes?${queryString}`)
         .then(res => {
           this.classes = res.data.data
         })

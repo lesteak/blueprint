@@ -33,17 +33,19 @@
            flex
            flex-col
            bg-brand-grey-500
+           p-0
+           md:p-20
            {{ $row_data->alignment == 'left' ? 'md:flex-row' : 'md:flex-row-reverse' }}
          "
        >
          @if ($row_data->video)
-         <div class="relative aspect-video">
+         <div class="relative aspect-video w-full">
             @include('enso-fields::video-embed', [
               'video' => $row_data->video,
             ])
           </div>
          @endif
-         <div class="flex flex-col justify-center p-10 md:p-20 w-full">
+         <div class="flex flex-col justify-start w-full p-10 md:p-0">
            <h2 class="text-white text-8xl">{{ $row_data->title }}</h2>
            {!! $row_data->content !!}
            <x-button-group :buttons="$row_data->buttons" class="mt-8"></x-button-group>

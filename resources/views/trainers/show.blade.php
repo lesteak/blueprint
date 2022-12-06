@@ -37,11 +37,15 @@
       <div class="md:w-6/12 w-full flex justify-center md:justify-between flex-col h-auto gap-5">
         <div class="flex flex-col gap-5 px-5 border-b border-b-black/30">
           <h1 class="text-8xl">{{ $trainer->name }}</h1>
-          <p class="text-white text-base font-cabin tracking-widest uppercase pb-10">{{ $trainer->role }}</p>
-        </div>
-        
-        <div class="[&>p]:text-white">
-          @flexibleField($trainer, 'content', 'content')
+          @if ($trainer->role)
+            <p class="text-white text-base font-cabin tracking-widest uppercase pb-10">{{ $trainer->role }}</p>
+          @endif
+
+          @if ($trainer->description)
+          <div class="[&>p]:text-brand-grey-100 mb-10 text-lg">
+            {!! $trainer->description !!}
+          </div>
+          @endif
         </div>
       </div>
 
@@ -80,17 +84,14 @@
       </svg>        
     </div>
     </div>
-
-    <section class="max-w-screen-2xl m-auto p-10">
-      <h2 class="text-8xl">Available Classes</h2>
-      <classes-index :trainer="'{{ $trainer->slug }}'"></classes-index>
-    </section>
-
-    @flexibleField($page, 'content', 'content')
-
-    <section class="max-w-screen-2xl m-auto p-10">
-      <h2 class="text-8xl">More</h2>
-      <more-links :hide="'/classes'"></more-links>
-    </section>
   </div>
+
+  @flexibleField($trainer, 'content', 'content')
+
+  @flexibleField($page, 'content', 'content')
+
+  <section class="max-w-screen-2xl m-auto p-10">
+    <h2 class="text-8xl">More</h2>
+    <more-links :hide="'/classes'"></more-links>
+  </section>
 @endsection

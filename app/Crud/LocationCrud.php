@@ -56,8 +56,10 @@ class LocationCrud extends Config implements ConfigIsPublishable
                 ->addFields([
                     FileUploadFieldResumable::make('thumbnail')
                         ->addFieldsetClass('is-half'),
-                    GeoField::make('geo')
+                    FileUploadFieldResumable::make('heroImage')
                         ->addFieldsetClass('is-half'),
+                    GeoField::make('geo')
+                        ->addFieldsetClass('is-full'),
                     DateTimeField::make('publish_at'),
                     TextField::make('name')
                         ->addFieldsetClass('is-two-thirds'),

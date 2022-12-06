@@ -72,6 +72,7 @@ class TrainerCrud extends Config implements ConfigIsPublishable
                     FlexibleContentField::make('content')
                         ->addRowSpecs([
                             TextRow::make(),
+                            \App\Crud\Rows\ClassesRow::make(),
                         ]),
                 ]),
             Section::make('relationships')
