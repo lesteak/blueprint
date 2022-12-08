@@ -1,4 +1,10 @@
 @php
+    /**
+     * @var \Illuminate\Database\Eloquent\Collection $all_locations
+     * @var \App\Models\Location                     $location
+     * @var \App\Models\Page                         $page
+     */
+
     $location_id = "6302ddec1f85c122836a5703";
     //dd($page, $location);
 @endphp

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\View;
 use Yadda\Enso\Crud\Traits\UsesPage;
+use Yadda\Enso\Facades\EnsoCrud;
 use Yadda\Enso\Facades\EnsoMeta;
 
 class LocationController extends Controller
@@ -35,7 +36,10 @@ class LocationController extends Controller
 
         EnsoMeta::use($meta);
 
-        return View::make('locations.show', compact('page', 'location'));
+        return View::make('locations.show', compact(
+            'location',
+            'page'
+        ));
     }
 
     /**
@@ -60,6 +64,24 @@ class LocationController extends Controller
 
         EnsoMeta::use($meta);
 
-        return View::make('locations.timetable', compact('page', 'location'));
+        $all_locations = $this->getAllLocations();
+
+        return View::make('locations.timetable', compact(
+            'all_locations',
+            'location',
+            'page',
+        ));
+    }
+
+    /**
+     * Gets all Locations as items for the locations dropdown menu.
+     *
+     * @return \Illuminate\Support\Collection
+     */
+    protected function getAllLocations(): \Illuminate\Support\Collection
+    {
+        return EnsoCrud::query('location')
+            ->orderBy('name', 'asc')
+            ->get();
     }
 }
