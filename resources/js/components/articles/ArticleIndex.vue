@@ -1,9 +1,11 @@
 <template>
   <div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
-      <div v-for="article in articles" :key="article.id">
-        <article-card :article="article"></article-card>
-      </div>
+      <article-card
+        v-for="article in articles"
+        :key="article.id"
+        :article="article">
+      </article-card>
     </div>
 
     <a v-if="more_content === 'see_all'" href="/articles" class="button sign-post max-w-fit">
