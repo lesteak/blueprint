@@ -26,7 +26,16 @@
             <label class="absolute top-0 left-0 px-5 uppercase tracking-widest" for="phone_number">Phone Number</label>
           </div>
           <div class="bg-white text-brand-grey-500 rounded-md overflow-hidden w-full relative">
-            <input class="w-full p-5" name="branch" :value="form.branch" type="email" placeholder="Branch...">
+            <select :v-model="branch" class="w-full p-5" name="branch" :value="form.branch">
+              <option value="null">Branch...</option>
+              <option
+                v-for="location in locations"
+                :key="location.slug"
+                :value="location.name"
+              >
+                {{ location.name }}
+              </option>
+            </select>
             <label class="absolute top-0 left-0 px-5 uppercase tracking-widest" for="branch">Branch</label>
           </div>
         </div>
@@ -48,13 +57,19 @@
 
 <script>
 export default {
+  props: {
+    locations: {
+      required: false
+    }
+  },
   data() {
     return {
       form: {
         name: "",
         email: "",
         phone_number: "",
-        message: ""
+        message: "",
+        branch: null,
       }
     }
   },

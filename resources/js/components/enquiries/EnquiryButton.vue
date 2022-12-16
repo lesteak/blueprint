@@ -8,7 +8,11 @@
       <span>Enquiry</span>
     </button>
 
-    <EnquiryForm v-if="modalOpen" @close="modalOpen = false"></EnquiryForm>
+    <EnquiryForm
+      v-if="modalOpen"
+      @close="modalOpen = false"
+      :locations="locations">
+    </EnquiryForm>
   </div>
 </template>
 
@@ -18,6 +22,11 @@ import EnquiryForm from './EnquiryForm.vue';
 export default {
   components: {
     EnquiryForm,
+  },
+  props: {
+    locations: {
+      required: false,
+    }
   },
   data() {
     return {
