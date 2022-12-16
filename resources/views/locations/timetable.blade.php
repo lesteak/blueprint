@@ -4,9 +4,7 @@
      * @var \App\Models\Location                     $location
      * @var \App\Models\Page                         $page
      */
-
-    $location_id = "6302ddec1f85c122836a5703";
-    //dd($page, $location);
+    //dd($page, $location, $all_locations);
 @endphp
 @extends('layouts.app')
 
@@ -20,6 +18,9 @@
 
     @flexibleField($page, 'content', 'content')
 
-    <timetable :active-location-id="'{{ $location->glowfox_id }}'" :trainer-id="'629869e2c1426b6fc81d00c7'"></timetable>
+    <timetable
+        :active-location='@json($location)'
+        :locations='@json($all_locations)'
+    ></timetable>
 
 @endsection
