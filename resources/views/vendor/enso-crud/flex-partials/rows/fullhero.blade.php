@@ -26,7 +26,7 @@
   $row_data = $row->unpack();
   //dd($row_data);
   $background_style = $row_data->desktop_image
-    ? 'background-image: url(' . $row_data->desktop_image->getResizeUrl('hero', true) . ')'
+    ? 'background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(' . $row_data->desktop_image->getResizeUrl('hero', true) . ');'
     : "bg-red-500";
 @endphp
 
