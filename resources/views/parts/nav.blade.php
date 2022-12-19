@@ -1,46 +1,122 @@
 @php
-    $menu = SiteMenu::get('main-menu');
-    $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
+$menu = SiteMenu::get('main-menu');
+$is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
 @endphp
 
-<main-menu>
-    <div class="flex-grow-0 flex-shrink-0 bg-gray-400 min-h-" slot-scope="{menuVisible,toggleMenu}">
-        <div class="max-w-screen-lg px-5 mx-auto flex justify-between items-center">
-            <a href="{{ url('/') }}" class="block w-10 h-10 my-2">
-                <img src="{{ asset('img/enso/enso-square-logo.png') }}" alt="{{ config('app.name') }}">
-            </a>
-            <div class="flex items-center">
-                @if ($menu)
-                    @if(!$is_burger)
-                        @foreach ($menu->items as $item)
-                            <a href="{{ $item->url }}" target="{{ $item->target_str }}" rel="{{ $item->rel }}" class="block p-2 hidden md:block ml-10">
-                            {{ $item->label }}
-                            </a>
-                        @endforeach
-                    @endif
-                    <button class="w-6 h-6 my-2 ml-5 {{ $is_burger ? '' : 'md:hidden' }}" @click="toggleMenu">
-                        <span class="h-1 mb-1 bg-white block" aria-hidden="true"></span>
-                        <span class="h-1 mb-1 bg-white block" aria-hidden="true"></span>
-                        <span class="h-1 bg-white block" aria-hidden="true"></span>
-                        <span class="sr-only">Menu</span>
-                    </button>
-                @endif
-            </div>
-        </div>
-
-        <div :class="{hidden: !menuVisible}" class="absolute top-0 left-0 w-full h-full bg-gray-400">
-        <button type="button" @click="toggleMenu" class="absolute top-0 right-0 p-10 text-lg leading-none">
-            ✖ <span class="sr-only">Close Menu</span>
-        </button>
-            <div class="h-full flex flex-col items-center justify-center">
-                @if ($menu)
-                    @foreach ($menu->items as $item)
-                        <a href="{{ $item->url }}" target="{{ $item->target_str }}" rel="{{ $item->rel }}" class="block text-lg my-3">
-                            {{ $item->label }}
-                        </a>
-                    @endforeach
-                @endif
-            </div>
-        </div>
+<main-menu v-slot="{menuVisible,toggleMenu}">
+  <div id="nav-bar" class="w-full flex text-white justify-between fixed z-50">
+    <div class="flex absolute h-28 z-30">
+      <div
+        class="
+          flex
+          justify-center
+          items-center
+          bg-brand-blue
+          h-[100px]
+          w-[200px]
+          md:w-[292px]
+          z-20
+          md:px-10
+          px-4
+        "
+      >
+        <a href="{{ url('/') }}">
+          <img
+            src="{{ asset('svg/logo.svg') }}"
+            alt="{{ config('app.name') }}"
+          >
+        </a>
+      </div>
+      <div class="triangle w-10 h-[100px] absolute right-[-3.1rem] z-20"></div>    
     </div>
+    <nav
+      class="
+        bg-gradient-to-r
+        from-[#25272e]
+        to-brand-grey-500
+        flex
+        w-full
+        justify-end
+        font-medium
+        h-[80px]
+      "
+    >
+      @if ($menu)
+      @if(!$is_burger)
+        <ul class="mx-10 hidden md:grid grid-cols-3">
+          @foreach ($menu->items as $item)
+            <li
+              class="
+                w-full
+                h-full
+                text-white
+                {{ Nav::isCurrent($item->url) ? 'border-t-4 border-[#4e8fdf]' : '' }}
+                border-r
+                border-r-black/30
+                first:border-l
+                first:border-l-black/30
+              "
+            >
+              <a
+                href="{{ $item->url }}"
+                target="{{ $item->target_str }}"
+                rel="{{ $item->rel }}"
+                class="
+                  h-full
+                  items-center
+                  flex
+                  justify-center
+                  px-5
+                "
+              >
+                {{ $item->label }}
+              </a>
+            </li>
+          @endforeach
+        </ul>
+      @endif
+      <button
+        :class="{'is-active': menuVisible}"
+        class="hamburger hamburger--squeeze {{ $is_burger ? '' : 'md:hidden' }} px-5 z-50"
+        @click="toggleMenu"
+        type="button"
+      >
+        <span class="hamburger-box">
+          <span class="hamburger-inner bg-white"></span>
+        </span>
+      </button>
+      @endif
+
+      <div
+        id="mobile-nav"
+        :class="{hidden: !menuVisible}"
+        class="
+          bg-gradient-to-r
+          from-[#25272e]
+          to-brand-grey-500
+          absolute
+          left-0
+          h-screen
+          w-full
+          z-20
+        "
+      >
+        <ul class="w-full flex flex-col justify-center items-center h-full gap-10">
+          @if ($menu)
+            @foreach ($menu->items as $item)
+              <li>
+                <a
+                  href="{{ $item->url }}"
+                  target="{{ $item->target_str }}"
+                  rel="{{ $item->rel }}"
+                >
+                  {{ $item->label }}
+                </a>
+              </li>
+            @endforeach
+          @endif
+        </ul>
+      </div>
+    </nav>
+  </div>
 </main-menu>

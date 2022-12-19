@@ -7,6 +7,7 @@ use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvi
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Yadda\Enso\Facades\EnsoCrud;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -37,11 +38,20 @@ class RouteServiceProvider extends ServiceProvider
     {
         $this->configureRateLimiting();
 
+        Route::model('class', EnsoCrud::modelClass('class'));
+        Route::model('location', EnsoCrud::modelClass('location'));
+        Route::model('trainer', EnsoCrud::modelClass('trainer'));
+
         $this->routes(function () {
             Route::prefix('api')
+                ->name('api.')
                 ->middleware('api')
-                ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
+
+            Route::middleware(['web', 'enso'])
+                ->prefix('admin')
+                ->name('admin.')
+                ->group(base_path('routes/admin.php'));
 
             Route::middleware('web')
                 ->namespace($this->namespace)

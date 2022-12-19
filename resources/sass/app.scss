@@ -1,8 +1,178 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://use.typekit.net/anl2abe.css");
 
 // Variables
 @import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+@layer base {
+  html {
+    @apply font-cabin;
+    @apply antialiased;
+  }
+
+  h1 {
+    @apply md:text-8xl;
+    @apply text-5xl;
+    @apply font-teko;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  h2 {
+    @apply md:text-8xl;
+    @apply text-5xl;
+    @apply font-teko;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  a, dt {
+    @apply uppercase;
+    @apply tracking-widest;
+  }
+
+  dd {
+    @apply text-brand-grey-100;
+  }
+
+  footer a {
+    @apply capitalize;
+    @apply tracking-normal;
+    @apply text-brand-grey-100;
+  }
+
+  .card {
+    @apply rounded-lg;
+    @apply overflow-hidden;
+  }
+
+  .card__title {
+    @apply text-4xl;
+    @apply font-teko;
+    @apply text-white;
+    @apply text-center;
+    @apply py-5;
+    font-weight: 400;
+    font-style: normal;
+    @apply bg-brand-grey-200;
+  }
+
+  .card__link {
+    @apply text-white;
+  }
+
+  .triangle {
+    width: 0;
+    height: 0;
+    text-indent: -9999px;
+    border-right: 50px solid transparent;
+    border-top: 7rem solid #1b3377;
+  }
+
+  .button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: #1b3377;
+    @apply uppercase;
+    @apply font-medium;
+    @apply tracking-widest;
+  }
+
+  .button__grey {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: #141519;
+    @apply uppercase;
+    @apply font-medium;
+    @apply tracking-widest;
+  }
+
+  .sign-post {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: red;
+    @apply text-white;
+    @apply uppercase;
+    @apply font-medium;
+    @apply tracking-widest;
+  }
+  .sign-post::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 0;
+    text-indent: -9999px;
+    border-right: 20px solid transparent;
+    border-top: 50px solid #1b3377;
+  }
+  .sign-post:hover::after {
+    --tw-bg-opacity: 1;
+    border-color: red;
+  }
+
+  .sign-post__grey {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    background-color: #141519;
+    @apply uppercase;
+    @apply font-medium;
+    @apply tracking-widest;
+  }
+  .sign-post__grey::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 0;
+    height: 0;
+    text-indent: -9999px;
+    border-right: 20px solid transparent;
+    border-top: 50px solid #141519;
+  }
+
+  .scroll-up {
+    transition: all ease-in-out .2s;
+    transform: translateY(0);
+    position: fixed;
+  }
+
+  .scroll-down {
+    transition: all ease-in-out .2s;
+    transform: translateY(-200%);
+  }
+
+  .hamburger {
+    padding: 0;
+  }
+  .hamburger-inner {
+    @apply bg-white !important;
+  }
+
+  .hamburger-inner::before,
+  .hamburger-inner::after {
+    @apply bg-white !important;
+  }
+
+  .hamburger.is-active .hamburger-inner::before,
+  .hamburger.is-active .hamburger-inner::after {
+    @apply bg-white !important;
+  }
+}

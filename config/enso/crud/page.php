@@ -35,8 +35,17 @@ return [
      * Records where the frontend identifier should not be editable by regular admins
      */
     'protected_records' => [
+        'about',
+        'contact',
+        'class',
+        'classes',
         'holding-page',
         'home',
+        'location',
+        'locations',
+        'trainer',
+        'trainers',
+        'timetable',
     ],
 
     /**

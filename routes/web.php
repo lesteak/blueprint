@@ -1,5 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Yadda\Enso\Blog\Facades\EnsoBlog;
+use Yadda\Enso\Newsletter\Facades\EnsoNewsletter;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,18 +16,30 @@
 |
 */
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::group(['middleware' => 'enso'], function () {
-    EnsoCrud::crudRoutes('admin/pages', 'page', 'admin.pages');
-    Route::get('admin')->uses([\App\Http\Controllers\Admin\DashboardController::class, 'index']);
-});
-
-Route::group(['middleware' => 'holding-page'], function () {
+Route::middleware(['holding-page', 'globalscopes'])->group(function () {
     Route::get('/')->uses([\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     // Duplicate route for post-login/register redirection
     Route::get('home')->uses([\App\Http\Controllers\HomeController::class, 'redirect']);
+
+    Route::prefix('classes')->name('classes.')->group(function () {
+        Route::get('{class}')->uses([\App\Http\Controllers\ClassController::class, 'show'])->name('show');
+    });
+
+    Route::prefix('locations')->name('locations.')->group(function () {
+        Route::get('{location}')->uses([\App\Http\Controllers\LocationController::class, 'show'])->name('show');
+        Route::get('{location}/timetable')->uses([\App\Http\Controllers\LocationController::class, 'timetable'])->name('timetable');
+    });
+
+    Route::prefix('trainers')->name('trainers.')->group(function () {
+        Route::get('{trainer}')->uses([\App\Http\Controllers\TrainerController::class, 'show'])->name('show');
+    });
+
+    EnsoNewsletter::routes();
+
+    EnsoBlog::routes('articles', Yadda\Enso\Blog\Controllers\PostController::class, 'articles');
 
     Route::get('{page}')->uses([\App\Http\Controllers\PageController::class, 'show'])->name('pages.show');
 });
