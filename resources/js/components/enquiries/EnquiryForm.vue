@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed w-screen h-screen top-0 left-0 flex justify-center items-center z-10">
+  <div class="fixed w-screen h-screen top-0 left-0 flex justify-center items-center z-50">
     <div v-if="submit_response" class="relative bg-brand-grey-500 w-full max-w-5xl p-20 rounded-lg">
       <span class="absolute text-white top-0 right-0 p-5 cursor-pointer" @click="close">X</span>
 

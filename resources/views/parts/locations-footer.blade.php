@@ -1,5 +1,15 @@
 @php
-$button = collect(EnsoSettings::get('location_footer_button'));
+$button = null;
+if (EnsoSettings::get('location_footer_button'))
+{
+  $buttons = collect(EnsoSettings::get('location_footer_button'))->first();
+  $button = (object) [
+    "link" => $buttons['fields']['link']['content'],
+    "target" => $buttons['fields']['target']['content']['id'],
+    "hover" => $buttons['fields']['hover']['content'],
+    "label" => $buttons['fields']['label']['content'],
+  ];
+}
 $image = collect(EnsoSettings::get('location_footer_image'))->first();
 @endphp
 <section class="max-w-screen-2xl m-auto p-10 my-20 flex w-full flex-col">
@@ -29,8 +39,15 @@ $image = collect(EnsoSettings::get('location_footer_image'))->first();
       >
         <h2>{{ EnsoSettings::get('location_footer_title') }}</h2>
         {{ EnsoSettings::get('location_footer_content') }}
-        @if (EnsoSettings::get('location_footer_button'))
-          {{--  <x-button-group :buttons="$button" class="mt-8"></x-button-group>  --}}
+        @if ($button)
+          <a
+              href="{{ $button->link }}"
+              target="{{ $button->target }}"
+              class="button sign-post"
+              title="{{ $button->hover }}"
+          >
+              <span>{{ $button->label }}</span>
+          </a>
         @endif
       </div>
       @if ($image)

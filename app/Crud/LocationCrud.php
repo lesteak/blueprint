@@ -82,6 +82,9 @@ class LocationCrud extends Config implements ConfigIsPublishable
                     FlexibleContentField::make('content')
                         ->addRowSpecs([
                             \App\Crud\Rows\TextRow::make(),
+                            \App\Crud\Rows\TextImageRow::make(),
+                            \App\Crud\Rows\ImageRow::make(),
+                            \App\Crud\Rows\TextVideoRow::make(),
                             \App\Crud\Rows\ClassesRow::make(),
                         ]),
                 ]),
