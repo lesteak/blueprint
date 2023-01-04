@@ -143,6 +143,7 @@ class PostCrud extends Post implements ConfigIsPublishable
             \App\Crud\Rows\ImageRow::make(),
             \App\Crud\Rows\QuoteRow::make(),
             \App\Crud\Rows\TextRow::make(),
+            \App\Crud\Rows\TextVideoRow::make(),
         ];
     }
 }
