@@ -12,6 +12,7 @@ import Timetable from './components/timetable/Timetable.vue';
 
 import MapElement from './components/locations/Map.vue';
 import EnquiryButton from './components/enquiries/EnquiryButton.vue';
+import Carousel from './components/carousel/Carousel.vue';
 
 new Vue({
   el: '#app',
@@ -26,6 +27,7 @@ new Vue({
     TrainerIndex,
     Timetable,
     MapElement,
-    EnquiryButton
+    EnquiryButton,
+    Carousel,
   },
 });
