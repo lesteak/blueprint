@@ -11,7 +11,6 @@
    *   ->title - string
    */
   $row_data = $row->unpack();
-  //dd($row_data);
   $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
   @endphp
   
@@ -23,9 +22,7 @@
     </div>
 
     @if ($row_data->articles->count() > 0)
-    <article-index :preloaded_articles='@json($row_data->articles)' :more_content="'{{ $row_data->more_content }}'"></article-index>
-    @else
-      <p>No news is good news</p>
+      <article-index :preloaded_articles='@json($row_data->articles)' :more_content="'{{ $row_data->more_content }}'"></article-index>
     @endif
   </div>
 
