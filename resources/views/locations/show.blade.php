@@ -89,11 +89,13 @@
       </div>
 
       <div class="w-full md:w-6/12 flex justify-center aspect-square">
-        <img
-          class="max-h-[720px] max-w-[640px] w-full h-auto object-contain aspect-square"
-          src="{{ $location->heroImage->getResizeUrl('trainer_location_hero', true) }}"
-          alt="Entrance of Setia City Mall location"
-        >
+        @if ($location->heroImage)
+          <img
+            class="max-h-[720px] max-w-[640px] w-full h-auto object-contain aspect-square"
+            src="{{ $location->heroImage->getResizeUrl('trainer_location_hero', true) }}"
+            alt="Entrance of Setia City Mall location"
+          >
+        @endif
         {{--  <map-element :geo='@json($location->geo)'></map-element>  --}}
       </div>
     </div>
