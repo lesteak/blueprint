@@ -40,7 +40,7 @@
           <picture class="w-full md:max-w-[480px]">
             <img
               class="w-full h-auto md:w-[480px] md:h-[480px] object-cover"
-              src="{{ $feature->image->getResizeUrl('480_x', true) }}"
+              src="{{ $feature->image->getResizeUrl('1024_x', true) }}"
               alt="{{ $feature->image->alt_text }}"
             >
           </picture>

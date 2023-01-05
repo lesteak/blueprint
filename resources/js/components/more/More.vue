@@ -1,7 +1,7 @@
 <template>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
     <div
-      v-for="(card, index) in cards"
+      v-for="(card, index) in activeCards"
       :key="index"
       class="
         rounded-lg
@@ -16,14 +16,13 @@
       <div>
         <img
           v-if="card.img"
-          :src="card.img" alt=""
+          :src="card.img.url" alt=""
           class="
             max-h-[300px]
             w-full
             object-cover
           "
         >
-        <div v-else> No Image </div>
       </div>
       <div class="bg-brand-grey-500 h-full text-white px-5 font-teko text-4xl flex justify-center items-center">
         {{ card.name }}
@@ -50,6 +49,10 @@
 <script>
 export default {
   props: {
+    cards: {
+      type: Array,
+      required: true,
+    },
     hide: {
       type: String,
       required: false,
@@ -57,31 +60,33 @@ export default {
   },
   data() {
     return {
-      cards: [
-        {
-          name: "Trainers",
-          img: "",
-          url: "/trainers"
-        },
-        {
-          name: "Timetable",
-          img: "",
-          url: "/timetable"
-        },
-        {
-          name: "Classes",
-          img: "",
-          url: "/classes"
-        }
-      ],
+      activeCards: [],
+      // cards: [
+      //   {
+      //     name: "Trainers",
+      //     img: "",
+      //     url: "/trainers"
+      //   },
+      //   {
+      //     name: "Timetable",
+      //     img: "",
+      //     url: "/timetable"
+      //   },
+      //   {
+      //     name: "Classes",
+      //     img: "",
+      //     url: "/classes"
+      //   }
+      // ],
       activePath: window.location.pathname,
     }
   },
   mounted() {
     // Simple function to remove active item from array
-    this.cards.forEach((card, index) => {
+    this.activeCards = this.cards;
+    this.activeCards.forEach((card, index) => {
       if (card.url === this.activePath || this.hide && card.url === this.hide) {
-        this.cards.splice(index, 1);
+        this.activeCards.splice(index, 1);
       }
     })
   }
