@@ -59,7 +59,7 @@ $image = collect(EnsoSettings::get('location_footer_image'))->first();
             object-cover
             w-full
           "
-          src="{{ $image['preview'] }}"
+          src="{{ $image['url'] }}"
           alt="Our Locations">
         @endif
     </div>
