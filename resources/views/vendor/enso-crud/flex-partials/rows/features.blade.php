@@ -46,7 +46,7 @@
           </picture>
         @endif
         <div class="flex flex-col justify-center p-10 md:p-20 w-full">
-          <h2 class="text-white text-8xl">{{ $feature->title }}</h2>
+          <h2 class="text-white text-5xl md:text-8xl">{{ $feature->title }}</h2>
           <div class="[&>p]:text-white text-lg">{!! $feature->content !!}</div>
           <x-button-group :buttons="$feature->buttons" class="mt-8"></x-button-group>
         </div>
