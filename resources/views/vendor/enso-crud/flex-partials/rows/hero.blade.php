@@ -16,7 +16,7 @@
   $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
 
   $background_style = $row_data->desktop_image
-    ? 'linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)), url(' . $row_data->desktop_image->getResizeUrl('hero', true) . ')'
+    ? 'background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(' . $row_data->desktop_image->getResizeUrl('hero', true) . '); background-position:center;background-size:cover;'
     : "background-color:black";
 @endphp
 
