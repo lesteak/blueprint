@@ -12,7 +12,8 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
           justify-center
           items-center
           bg-brand-blue
-          h-[100px]
+          h-[60px]
+          md:h-[100px]
           w-[200px]
           md:w-[292px]
           z-20
@@ -22,12 +23,22 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
       >
         <a href="{{ url('/') }}">
           <img
+            class="p-3.5 md:p-0"
             src="{{ asset('svg/logo.svg') }}"
             alt="{{ config('app.name') }}"
           >
         </a>
       </div>
-      <div class="triangle w-10 h-[100px] absolute right-[-3.1rem] z-20"></div>    
+      <div class="
+        triangle
+        w-10
+        h-[100px]
+        absolute
+        right-[-1.8rem]
+        md:right-[-3.1rem]
+        z-20
+        "
+      ></div>    
     </div>
     <nav
       class="
@@ -38,7 +49,8 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
         w-full
         justify-end
         font-medium
-        h-[80px]
+        h-[50px]
+        md:h-[80px]
       "
     >
       @if ($menu)

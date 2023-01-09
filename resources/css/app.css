@@ -79,6 +79,15 @@
     border-right: 50px solid transparent;
     border-top: 100px solid #1b3377;
   }
+  @media (max-width: 768px) {
+    .triangle {
+      width: 0;
+      height: 0;
+      text-indent: -9999px;
+      border-right: 30px solid transparent;
+      border-top: 60px solid #1b3377;
+    }
+  }
 
   .button {
     position: relative;
