@@ -34,7 +34,7 @@
   <div class="relative h-screen p-10 bg-center bg-cover" style="{{ $background_style }}">
     <div class="max-w-screen-2xl m-auto flex flex-col justify-center h-full">
       <div class="w-full lg:w-1/2">
-        <h1 class="text-white text-8xl md:text-10xl pr-4">{{ $row_data->title }}</h1>
+        <h1 class="text-white text-7xl md:text-10xl pr-4">{{ $row_data->title }}</h1>
         <div class="[&>P]:text-brand-grey-100 [&>P]:text-lg">
           {!! $row_data->content !!}
         </div>
