@@ -46,7 +46,7 @@
           </div>
          @endif
          <div class="flex flex-col justify-start w-full p-10 md:p-0">
-           <h2 class="text-white text-8xl">{{ $row_data->title }}</h2>
+           <h2 class="text-white text-5xl md:text-8xl">{{ $row_data->title }}</h2>
            {!! $row_data->content !!}
            <x-button-group :buttons="$row_data->buttons" class="mt-8"></x-button-group>
          </div>

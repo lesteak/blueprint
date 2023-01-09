@@ -58,7 +58,7 @@
       class="p-10"
     >
       <div class="max-w-2xl m-auto flex w-full flex-col">
-        <h2 class="text-8xl">{{ activeLocation.name }}</h2>
+        <h2 class="text-5xl md:text-8xl">{{ activeLocation.name }}</h2>
         <p v-html="activeLocation.description"></p>
         <!-- <x-button-group :buttons="$row_data->buttons" class="mt-8"></x-button-group> -->
       </div>

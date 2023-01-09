@@ -4,7 +4,7 @@
       <span class="absolute text-white top-0 right-0 p-5 cursor-pointer" @click="close">X</span>
 
       <div>
-        <h1 class="text-white text-8xl">Contact</h1>
+        <h1 class="text-white text-5xl md:text-8xl">Contact</h1>
         <p class="text-white my-10">Thanks for your enquiry, one of the team will be in touch.</p>
       </div>
 
@@ -18,7 +18,7 @@
       <span class="absolute text-white top-0 right-0 p-5 cursor-pointer" @click="close">X</span>
 
       <div>
-        <h1 class="text-white text-8xl">Contact</h1>
+        <h1 class="text-white text-5xl md:text-8xl">Contact</h1>
         <p class="text-white my-10">Content needed to explain expect time for response etc. Nam id suscipit elit. Nam sem elit, tristique ut blandit non, porttitor et diam. Vestibulum feugiat semper tellus, viverra vestibulum lectus tincidunt eu.</p>
       </div>
       

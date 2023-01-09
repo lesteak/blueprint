@@ -14,7 +14,7 @@
 @endphp
 
 <section id="{{ $row_id }}" class="max-w-screen-2xl m-auto p-10">
-  <h2 class="text-8xl">{{ $row_data->title }}</h2>
+  <h2 class="text-5xl md:text-8xl">{{ $row_data->title }}</h2>
   <trainer-index
     :classType='@json($row_data->class)'
     :location='@json($row_data->location)'

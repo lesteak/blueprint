@@ -38,7 +38,7 @@
     >
       <div class="md:w-6/12 w-full flex justify-center md:justify-start flex-col h-auto gap-5">
         <div class="flex flex-col gap-5 px-5 border-b border-b-black/30">
-          <h1 class="text-8xl">{{ $location->name }}</h1>
+          <h1 class="text-5xl md:text-8xl">{{ $location->name }}</h1>
           @if ($location->role)
             <p class="text-white text-base font-cabin tracking-widest uppercase pb-10">{{ $location->role }}</p>
           @endif

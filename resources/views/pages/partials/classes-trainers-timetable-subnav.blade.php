@@ -7,6 +7,7 @@
         <div
             class="
             w-full
+            max-w-[100vw]
             bg-gradient-to-r
             from-[#25272e]
             to-brand-grey-500
@@ -48,6 +49,7 @@
                     items-center
                     flex
                     justify-center
+                    text-sm
                 "
                 >
                 {{ $item->label }}

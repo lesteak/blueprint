@@ -43,7 +43,7 @@ $image = collect(EnsoSettings::get('location_footer_image'))->first();
           <a
               href="{{ $button->link }}"
               target="{{ $button->target }}"
-              class="button sign-post"
+              class="button sign-post max-w-fit"
               title="{{ $button->hover }}"
           >
               <span>{{ $button->label }}</span>

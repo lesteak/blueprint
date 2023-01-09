@@ -24,7 +24,7 @@
   <div class="relative h-[480px] p-10 bg-center	bg-cover" style="{{ $background_style }}">
     <div class="max-w-screen-2xl m-auto flex flex-col justify-center h-full">
       <div class="w-full text-center">
-        <h1 class="text-10xl text-white">{{ $row_data->title }}</h1>
+        <h1 class="text-8xl md:text-10xl text-white">{{ $row_data->title }}</h1>
       </div>
     </div>
   </div>

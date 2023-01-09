@@ -23,7 +23,7 @@
       </div>
     </header>
     <div class="max-w-[720px] w-full m-auto">
-      <h1 class="text-8xl mt-10 px-10">{{ $post->title }}</h1>
+      <h1 class="text-5xl md:text-8xl mt-10 px-10">{{ $post->title }}</h1>
       
       @flexibleField($post, 'content', 'content')
 
