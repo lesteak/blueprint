@@ -99,12 +99,17 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
           h-screen
           w-full
           z-20
+          flex
+          flex-col
+          justify-around
+          items-center
+          pt-20
         "
       >
-        <ul class="w-full flex flex-col justify-center items-center h-full gap-10">
+        <ul class="w-full flex flex-col justify-center items-center">
           @if ($menu)
             @foreach ($menu->items as $item)
-              <li>
+              <li class="border-black last:border-b border-t w-full text-center py-10">
                 <a
                   href="{{ $item->url }}"
                   target="{{ $item->target_str }}"
@@ -114,6 +119,21 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
                 </a>
               </li>
             @endforeach
+          @endif
+        </ul>
+
+        <ul class="text-center">
+          @if (EnsoSettings::get('instagram_url') || EnsoSettings::get('facebook_url') || EnsoSettings::get('twitter_url'))
+            <li class="text-white text-4xl font-teko">Social</li>
+            @if (EnsoSettings::get('instagram_url'))
+              <li><a href="{{ EnsoSettings::get('instagram_url') }}">instagram</a></li>
+            @endif
+            @if (EnsoSettings::get('facebook_url'))
+              <li><a href="{{ EnsoSettings::get('facebook_url') }}">facebook</a></li>
+            @endif
+            @if (EnsoSettings::get('twitter_url'))
+              <li><a href="{{ EnsoSettings::get('twitter_url') }}">twitter</a></li>
+            @endif
           @endif
         </ul>
       </div>
