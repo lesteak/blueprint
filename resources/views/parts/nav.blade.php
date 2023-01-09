@@ -14,7 +14,7 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
           bg-brand-blue
           h-[60px]
           md:h-[100px]
-          w-[200px]
+          w-[155px]
           md:w-[292px]
           z-20
           md:px-10

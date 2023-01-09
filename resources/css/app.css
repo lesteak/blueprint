@@ -178,13 +178,27 @@
   .hamburger {
     padding: 0;
   }
+  .hamburger-box {
+    @apply w-[20px] md:w-[40px] !important;
+  }
   .hamburger-inner {
-    @apply bg-white !important;
+    @apply h-[2px] bg-white w-[20px] md:w-[40px] !important;
+  }
+
+  .hamburger-inner::before {
+    @apply h-[2px] top-[6px] md:top-[10px] !important;
+  }
+  .hamburger-inner::after {
+    @apply h-[2px] bottom-[6px] md:bottom-[10px] !important;
+  }
+
+  .hamburger.is-active .hamburger-inner::after {
+    @apply bottom-[0px] !important;
   }
 
   .hamburger-inner::before,
   .hamburger-inner::after {
-    @apply bg-white !important;
+    @apply bg-white w-[20px] md:w-[40px] !important;
   }
 
   .hamburger.is-active .hamburger-inner::before,
