@@ -12,11 +12,13 @@
 @endphp
 
 <section id="{{ $row_data->row_id }}" class="max-w-screen-2xl m-auto mt-20">
-  <picture class="w-full">
-    <img
-      class="w-full h-auto object-cover"
-      src="{{ $row_data->image->getResizeUrl('480_x', true) }}"
-      alt="{{ $row_data->image->alt_text }}"
-    >
-  </picture>
+  @if ($row_data->image)
+    <picture class="w-full">
+      <img
+        class="w-full h-auto object-cover"
+        src="{{ $row_data->image->getResizeUrl('480_x', true) }}"
+        alt="{{ $row_data->image->alt_text }}"
+      >
+    </picture>
+  @endif
 </section>
