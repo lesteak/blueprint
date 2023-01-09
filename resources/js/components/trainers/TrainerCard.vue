@@ -16,12 +16,11 @@
           v-if="data.thumbnail"
           :src="data.thumbnail.url" alt=""
           class="
-            max-h-[460px]
+            h-[460px]
             w-full
             object-cover
           "
         >
-        <div v-else> No Image </div>
       </div>
       <div
         class="
