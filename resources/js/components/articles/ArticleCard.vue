@@ -16,6 +16,7 @@
             max-w-[460px]
             max-h-[300px]
             object-cover
+            aspect-square
           "
         >
         <div

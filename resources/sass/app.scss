@@ -30,6 +30,10 @@
     font-style: normal;
   }
 
+  p {
+    font-size: 18px !important;
+  }
+
   a, dt {
     @apply uppercase;
     @apply tracking-widest;

@@ -17,7 +17,7 @@
 <section id="{{ $row_id }}" class="max-w-screen-2xl m-auto p-10 mt-20">
   <div class="mb-10">
     <h2 class="text-5xl md:text-8xl">{{ $row_data->title }}</h2>
-    <div class="[&>p]:text-black">
+    <div class="[&>p]:text-black [&>p]:text-lg mb-10">
       {!! $row_data->content !!}
     </div>
 

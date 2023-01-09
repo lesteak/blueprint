@@ -32,6 +32,7 @@
             <li
                 class="
                 border-r
+                first:border-l
                 border-black
                 w-full
                 h-full

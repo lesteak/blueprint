@@ -33,6 +33,10 @@
     font-style: normal;
   }
 
+  p {
+    @apply text-lg;
+  }
+
   a, dt {
     @apply uppercase;
     @apply tracking-widest;

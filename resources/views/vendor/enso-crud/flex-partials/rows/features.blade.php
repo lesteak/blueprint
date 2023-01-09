@@ -28,12 +28,11 @@
         class="
           flex
           flex-col
-          bg-gradient-to-br
           from-[#25272e]
           to-brand-grey-500
           md:mx-5
           mx-10
-          {{ $feature->alignment == 'left' ? 'md:flex-row' : 'md:flex-row-reverse' }}
+          {{ $feature->alignment == 'left' ? 'md:flex-row bg-gradient-to-br' : 'md:flex-row-reverse bg-gradient-to-bl' }}
         "
       >
         @if ($feature->image)
