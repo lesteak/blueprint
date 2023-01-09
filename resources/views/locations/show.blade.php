@@ -14,7 +14,6 @@
       text-white
       relative
       mb-20
-      pt-20
       md:pt-5
     "
   >
@@ -28,11 +27,11 @@
         justify-center
         max-w-screen-2xl
         m-auto
-        py-40
+        md:py-40
         p-5
         md:flex-row
         gap-5
-        pt-20
+        pt-10
         md:pt-40
       "
     >
