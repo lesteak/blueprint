@@ -10,7 +10,7 @@
 </style>
 
 @section('content')
-  <article class="max-w-[960px] m-auto mt-10">
+  <article class="max-w-[960px] m-auto mt-0 md:mt-10">
     <header>
       <div class="flex flex-col justify-center">
         @if ($post->hero)
