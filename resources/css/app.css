@@ -183,3 +183,30 @@
     @apply bg-white !important;
   }
 }
+
+.select-arrows {
+  position: relative;
+  @apply w-4/12 text-4xl;
+}
+
+.select-arrows select {
+  @apply w-full tracking-wide p-4;
+  padding-right: 2em;
+  text-overflow: ellipsis;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  min-height: 3.125rem;
+}
+
+.select-arrows::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 7px 7px 0 7px;
+  border-color: currentColor transparent transparent transparent;
+  position: absolute;
+  right: 1ch;
+  top: 50%;
+  transform: translateY(-50%);
+}

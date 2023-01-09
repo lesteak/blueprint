@@ -26,30 +26,30 @@
           justify-center
         "
       >
-        <select
-          v-model="selected_id"
-          name="timetableLocation"
-          id=""
-          class="
-            p-5
-            w-4/12
-            font-teko
-            text-black
-            front-bold
-            border-l
-            border-gray-500
-            border-r
-          "
-        >
-          <option value="null">Select Location</option>
-          <option
-            v-for="location in locations"
-            :key="location.id"
-            :value="location.slug"
+        <div class="select-arrows">
+          <select
+            v-model="selected_id"
+            name="timetableLocation"
+            id=""
+            class="
+              font-teko
+              text-black
+              front-bold
+              border-l
+              border-gray-500
+              border-r
+            "
           >
-            {{ location.name }}
-          </option>
-        </select>
+            <option value="null">Select Location</option>
+            <option
+              v-for="location in locations"
+              :key="location.id"
+              :value="location.slug"
+            >
+              {{ location.name }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
 
