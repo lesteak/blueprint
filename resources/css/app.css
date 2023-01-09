@@ -186,7 +186,7 @@
 
 .select-arrows {
   position: relative;
-  @apply w-4/12 text-4xl;
+  @apply w-full md:w-4/12 text-4xl;
 }
 
 .select-arrows select {
