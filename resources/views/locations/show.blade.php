@@ -85,6 +85,27 @@
           @endif
         </ul>
 
+        <div class="flex 2-full flex-col md:flex-row">
+          @if ($location->glowfox_id)
+          <a
+            href="{{$location->slug}}/timetable"
+            class="px-6 m-0 button"
+          >
+            Timetable
+          </a>
+          @endif
+          @if ($location->address)
+          <a
+            href="https://www.google.com/maps/dir//{{urlencode($location->address)}}"
+            target="_blank"
+            class="px-6 button m-0 sign-post max-w-fit"
+            style="margin-left:0!important;"
+          >
+            get directions
+          </a>
+          @endif
+        </div>
+
       </div>
 
       <div class="w-full md:w-6/12 flex justify-center aspect-square">
