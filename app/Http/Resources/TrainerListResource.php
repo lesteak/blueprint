@@ -25,6 +25,7 @@ class TrainerListResource extends JsonResource
                 return LocationListResource::collection($this->locations);
             }),
             'name' => $this->name,
+            'role' => $this->role,
             'slug' => $this->slug,
             'thumbnail' => $this->whenLoaded('thumbnail', function () {
                 return ImageResource::make($this->thumbnail, [

@@ -48,7 +48,7 @@
         Api.get("/api/trainers")
           .then(res => {
             this.trainers = res.data.data
-            console.log(res)
+            // console.log(res)
           })
           .catch(err => {
             console.log(err);

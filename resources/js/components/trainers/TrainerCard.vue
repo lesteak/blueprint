@@ -39,7 +39,7 @@
       >
         {{ data.name }}
         <div class="text-base font-cabin tracking-widest uppercase">
-          {{ data.name }}
+          {{ data.role }}
         </div>
       </div>
       <div
