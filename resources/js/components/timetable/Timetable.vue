@@ -73,7 +73,6 @@
           height="1200"
           scrolling="no"
           frameborder="0"
-          class="h-screen"
           ref="iframe"
         ></iframe>
         <div
