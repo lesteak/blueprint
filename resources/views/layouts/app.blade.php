@@ -16,6 +16,10 @@
     <meta name="msapplication-TileColor" content="#3d363d">
     <meta name="theme-color" content="#3d363d">
 
+    @if (EnsoSettings::get('pixel-code'))
+      @include('parts.analytics.pixel-code')
+    @endif
+
   </head>
   <body class="flex">
     @include('enso-analytics::body')

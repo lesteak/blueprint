@@ -26,6 +26,7 @@ return [
         Yadda\Enso\Settings\Crud\ExtraFields\SocialAccounts::class,
         App\Crud\Extras\LocationFooter::class,
         App\Crud\Extras\MoreLinks::class,
+        App\Crud\Extras\PixelAnalyticsCode::class,
     ],
 
     /**
