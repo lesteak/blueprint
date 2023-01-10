@@ -22,7 +22,7 @@ return [
      * that implement Yadda\Enso\Settings\Contracts\ExtraSettings
      */
     'extra' => [
-        Yadda\Enso\Crud\Forms\Rows\SignupForms\Generic::class,
+        // Yadda\Enso\Crud\Forms\Rows\SignupForms\Generic::class,
         Yadda\Enso\Settings\Crud\ExtraFields\SocialAccounts::class,
         App\Crud\Extras\LocationFooter::class,
         App\Crud\Extras\MoreLinks::class,
