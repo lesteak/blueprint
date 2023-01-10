@@ -55,7 +55,7 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
     >
       @if ($menu)
       @if(!$is_burger)
-        <ul class="mx-10 hidden md:grid grid-cols-3">
+        <ul class="mx-10 hidden lg:grid grid-cols-4">
           @foreach ($menu->items as $item)
             <li
               class="
@@ -89,7 +89,7 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
       @endif
       <button
         :class="{'is-active': menuVisible}"
-        class="hamburger hamburger--squeeze {{ $is_burger ? '' : 'md:hidden' }} px-5 z-50"
+        class="hamburger hamburger--squeeze {{ $is_burger ? '' : 'lg:hidden' }} px-5 z-50"
         @click="toggleMenu"
         type="button"
       >
