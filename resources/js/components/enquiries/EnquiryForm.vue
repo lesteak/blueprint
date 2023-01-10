@@ -19,7 +19,7 @@
 
       <div>
         <h1 class="text-white text-5xl md:text-8xl">Contact</h1>
-        <p class="text-white my-10">Content needed to explain expect time for response etc. Nam id suscipit elit. Nam sem elit, tristique ut blandit non, porttitor et diam. Vestibulum feugiat semper tellus, viverra vestibulum lectus tincidunt eu.</p>
+        <p class="text-white my-10">Get in touch with us to find out more about MMA group classes and private training at any of our Blueprint Martial Arts locations.</p>
       </div>
       
       <div class="flex flex-col gap-5">
