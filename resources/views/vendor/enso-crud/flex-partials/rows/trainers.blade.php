@@ -13,7 +13,7 @@
   $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
 @endphp
 
-<section id="{{ $row_id }}" class="max-w-screen-2xl m-auto p-10">
+<section id="{{ $row_id }}" class="max-w-screen-2xl m-auto md:p-10 p-5">
   <h2 class="text-5xl md:text-8xl">{{ $row_data->title }}</h2>
   <trainer-index
     :classType='@json($row_data->class)'

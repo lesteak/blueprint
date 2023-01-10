@@ -12,7 +12,7 @@ if (EnsoSettings::get('location_footer_button'))
 }
 $image = collect(EnsoSettings::get('location_footer_image'))->first();
 @endphp
-<section class="max-w-screen-2xl m-auto p-10 my-20 flex w-full flex-col">
+<section class="max-w-screen-2xl m-auto md:p-10 p-5 my-20 flex w-full flex-col">
     <div
       class="
         grid

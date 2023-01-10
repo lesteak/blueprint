@@ -37,7 +37,7 @@
   </article>
 
   @if (!empty($related_posts))
-    <section class="max-w-screen-2xl m-auto p-10 mt-20">
+    <section class="max-w-screen-2xl m-auto md:p-10 p-5 mt-20">
       <h2 class="text-3 mb-5">Related Posts</h2>
       {{--  @if ($related_posts->count() > 0)  --}}
         <article-index :preloaded_articles='@json($related_posts)'></article-index>

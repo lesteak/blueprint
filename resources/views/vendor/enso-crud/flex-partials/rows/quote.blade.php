@@ -15,7 +15,7 @@
 
 <section
   id="{{ $row_data->row_id }}"
-  class="my-10 p-10"
+  class="my-10 md:p-10 p-5"
 >
   <div class="max-w-2xl m-auto flex w-full flex-col">
     <h2 class="text-5xl md:text-8xl">{{ $row_data->title }}</h2>

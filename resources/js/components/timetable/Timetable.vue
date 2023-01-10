@@ -55,7 +55,7 @@
 
     <section
       id=""
-      class="p-10"
+      class="md:p-10 p-5"
     >
       <div class="max-w-2xl m-auto flex w-full flex-col">
         <h2 class="text-5xl md:text-8xl">{{ activeLocation.name }}</h2>

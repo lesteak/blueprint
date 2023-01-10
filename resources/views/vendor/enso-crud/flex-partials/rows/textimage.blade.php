@@ -21,7 +21,7 @@
   $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
 @endphp
 
-<section id="{{ $row_data->row_id }}" class="max-w-screen-2xl m-auto mt-20 p-10">
+<section id="{{ $row_data->row_id }}" class="max-w-screen-2xl m-auto mt-20 md:p-10 p-5">
   <div class="flex flex-col justify-center gap-20">
       <div
         class="

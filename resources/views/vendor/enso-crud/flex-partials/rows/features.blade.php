@@ -30,8 +30,7 @@
           flex-col
           from-[#25272e]
           to-brand-grey-500
-          md:mx-5
-          mx-10
+          mx-5
           {{ $feature->alignment == 'left' ? 'md:flex-row bg-gradient-to-br' : 'md:flex-row-reverse bg-gradient-to-bl' }}
         "
       >
