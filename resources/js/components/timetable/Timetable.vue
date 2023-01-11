@@ -71,7 +71,7 @@
           :src="`https://app.glofox.com/portal/#/branch/${locationId}/classes-week-view?header=classes,memberships,trainers,facilities`"
           width="100%"
           height="1200"
-          scrolling="no"
+          scrolling="yes"
           frameborder="0"
           ref="iframe"
         ></iframe>
