@@ -75,6 +75,7 @@ class ClassCrud extends Config implements ConfigIsPublishable
                             TextRow::make(),
                             \App\Crud\Rows\TextImageRow::make(),
                             \App\Crud\Rows\TrainersRow::make(),
+                            \App\Crud\Rows\LocationsRow::make(),
                         ]),
                 ]),
             Section::make('relationships')
