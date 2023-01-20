@@ -16,6 +16,13 @@ use Yadda\Enso\Newsletter\Facades\EnsoNewsletter;
 |
 */
 
+Route::get(
+    '/sitemap.xml',
+    function () {
+        return response()->view('pages.sitemap')->header('Content-Type', 'text/xml');
+    }
+);
+
 Auth::routes(['register' => false]);
 
 Route::middleware(['holding-page', 'globalscopes'])->group(function () {

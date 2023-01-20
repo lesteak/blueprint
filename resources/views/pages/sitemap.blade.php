@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<url>
+  <loc>https://blueprintmartialarts.com/</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/classes</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/locations</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/about</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/contact-us</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/trainers</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/locations/damansara-heights</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/locations/desa-park-city</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/locations/kuala-lumpur-city-centre</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/locations/setia-city-mall</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/terms-conditions</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/privacy-policy</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/disclaimer</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/copyright-notice</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/locations/damansara-heights/timetable</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/locations/desa-park-city/timetable</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/locations/kuala-lumpur-city-centre/timetable</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://blueprintmartialarts.com/locations/setia-city-mall/timetable</loc>
+  <lastmod>2023-01-20T09:34:35+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
