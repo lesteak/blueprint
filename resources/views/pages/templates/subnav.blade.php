@@ -37,8 +37,8 @@
 
     @flexibleField($page, 'content', 'content')
 
-    <section class="max-w-screen-2xl m-auto p-10">
-        <h2>More</h2>
+    <section class="max-w-screen-2xl m-auto md:p-10 p-5">
+        <h2 class="text-5xl md:text-8xl">More</h2>
         <more-links :cards='@json($cards)'></more-links>
     </section>
 

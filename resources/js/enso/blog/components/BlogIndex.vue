@@ -1,6 +1,6 @@
 <template>
-  <div class="max-w-screen-2xl m-auto p-10 mt-20">
-    <h1 class="text-8xl">Latest News</h1>
+  <div class="max-w-screen-2xl m-auto md:p-10 p-5 mt-20">
+    <h1 class="text-5xl md:text-8xl">Latest News</h1>
     <article-index :more_content="'other'"></article-index>
   </div>
 </template>

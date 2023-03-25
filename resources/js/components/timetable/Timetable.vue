@@ -26,39 +26,39 @@
           justify-center
         "
       >
-        <select
-          v-model="selected_id"
-          name="timetableLocation"
-          id=""
-          class="
-            p-5
-            w-4/12
-            font-teko
-            text-black
-            front-bold
-            border-l
-            border-gray-500
-            border-r
-          "
-        >
-          <option value="null">Select Location</option>
-          <option
-            v-for="location in locations"
-            :key="location.id"
-            :value="location.slug"
+        <div class="select-arrows">
+          <select
+            v-model="selected_id"
+            name="timetableLocation"
+            id=""
+            class="
+              font-teko
+              text-black
+              front-bold
+              border-l
+              border-gray-500
+              border-r
+            "
           >
-            {{ location.name }}
-          </option>
-        </select>
+            <option value="null">Select Location</option>
+            <option
+              v-for="location in locations"
+              :key="location.id"
+              :value="location.slug"
+            >
+              {{ location.name }}
+            </option>
+          </select>
+        </div>
       </div>
     </div>
 
     <section
       id=""
-      class="p-10"
+      class="md:p-10 p-5"
     >
       <div class="max-w-2xl m-auto flex w-full flex-col">
-        <h2 class="text-8xl">{{ activeLocation.name }}</h2>
+        <h2 class="text-5xl md:text-8xl">{{ activeLocation.name }}</h2>
         <p v-html="activeLocation.description"></p>
         <!-- <x-button-group :buttons="$row_data->buttons" class="mt-8"></x-button-group> -->
       </div>
@@ -70,11 +70,11 @@
           id="glofox_1"
           :src="`https://app.glofox.com/portal/#/branch/${locationId}/classes-week-view?header=classes,memberships,trainers,facilities`"
           width="100%"
-          height="0"
+          height="500"
           scrolling="no"
           frameborder="0"
-          class="h-screen"
           ref="iframe"
+          @load="resizeIframe()"
         ></iframe>
         <div
     
@@ -91,6 +91,7 @@
 </template>
 
 <script>
+import iFrameResizer from "iframe-resizer";
 export default {
   props: {
     activeLocation: {
@@ -116,6 +117,11 @@ export default {
       selected_id: this.activeLocation.slug,
     }
   },
+  methods: {
+    resizeIframe() {
+      iFrameResizer.iframeResize({heightCalculationMethod: 'grow'})
+    }
+  },  
   watch: {
     selected_id() {
       window.location = `/locations/${this.selected_id}/timetable`;

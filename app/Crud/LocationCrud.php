@@ -76,6 +76,9 @@ class LocationCrud extends Config implements ConfigIsPublishable
                         ->addFieldsetClass('is-half'),
                     TextField::make('phone')
                         ->addFieldsetClass('is-half'),
+                    TextField::make('admin_emails')
+                        ->addFieldsetClass('is-half')
+                        ->setHelpText('Comma separated list of emails. These emails will receive notifications when an enquiry is made about this location, in addition to the administrator email.'),
                 ]),
             Section::make('content')
                 ->addFields([

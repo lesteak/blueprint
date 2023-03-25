@@ -14,10 +14,10 @@
   $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
   @endphp
   
-<section id="{{ $row_id }}" class="max-w-screen-2xl m-auto p-10 mt-20">
+<section id="{{ $row_id }}" class="max-w-screen-2xl m-auto md:p-10 p-5 mt-20">
   <div class="mb-10">
-    <h2>{{ $row_data->title }}</h2>
-    <div class="[&>p]:text-black">
+    <h2 class="text-5xl md:text-8xl">{{ $row_data->title }}</h2>
+    <div class="[&>p]:text-black [&>p]:text-lg mb-10">
       {!! $row_data->content !!}
     </div>
 

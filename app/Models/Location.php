@@ -56,6 +56,7 @@ class Location extends Model implements ContractsIsCrudModel, ModelIsPublishable
      */
     protected $fillable = [
         'address',
+        'admin_emails',
         'content',
         'description',
         'description_json',

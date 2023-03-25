@@ -23,10 +23,10 @@
 
 <section
   id="{{ $row_data->row_id }}"
-  class="p-10 mt-20"
+  class="md:p-10 p-5 mt-20"
 >
   <div class="max-w-2xl m-auto flex w-full flex-col">
-    <h2 class="text-8xl mb-10">{{ $row_data->title }}</h2>
+    <h2 class="text-5xl md:text-8xl mb-10">{{ $row_data->title }}</h2>
     {!! $row_data->content !!}
     <x-button-group :buttons="$row_data->buttons" class="mt-8"></x-button-group>
   </div>

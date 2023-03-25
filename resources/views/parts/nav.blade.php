@@ -12,8 +12,9 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
           justify-center
           items-center
           bg-brand-blue
-          h-[100px]
-          w-[200px]
+          h-[60px]
+          md:h-[100px]
+          w-[155px]
           md:w-[292px]
           z-20
           md:px-10
@@ -22,12 +23,22 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
       >
         <a href="{{ url('/') }}">
           <img
+            class="p-3.5 md:p-0"
             src="{{ asset('svg/logo.svg') }}"
             alt="{{ config('app.name') }}"
           >
         </a>
       </div>
-      <div class="triangle w-10 h-[100px] absolute right-[-3.1rem] z-20"></div>    
+      <div class="
+        triangle
+        w-10
+        h-[100px]
+        absolute
+        right-[-1.8rem]
+        md:right-[-3.1rem]
+        z-20
+        "
+      ></div>    
     </div>
     <nav
       class="
@@ -38,12 +49,13 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
         w-full
         justify-end
         font-medium
-        h-[80px]
+        h-[50px]
+        md:h-[80px]
       "
     >
       @if ($menu)
       @if(!$is_burger)
-        <ul class="mx-10 hidden md:grid grid-cols-3">
+        <ul class="mx-10 hidden lg:grid grid-cols-4">
           @foreach ($menu->items as $item)
             <li
               class="
@@ -77,7 +89,7 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
       @endif
       <button
         :class="{'is-active': menuVisible}"
-        class="hamburger hamburger--squeeze {{ $is_burger ? '' : 'md:hidden' }} px-5 z-50"
+        class="hamburger hamburger--squeeze {{ $is_burger ? '' : 'lg:hidden' }} px-5 z-50"
         @click="toggleMenu"
         type="button"
       >
@@ -99,12 +111,17 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
           h-screen
           w-full
           z-20
+          flex
+          flex-col
+          justify-around
+          items-center
+          pt-20
         "
       >
-        <ul class="w-full flex flex-col justify-center items-center h-full gap-10">
+        <ul class="w-full flex flex-col justify-center items-center">
           @if ($menu)
             @foreach ($menu->items as $item)
-              <li>
+              <li class="border-black last:border-b border-t w-full text-center py-10">
                 <a
                   href="{{ $item->url }}"
                   target="{{ $item->target_str }}"
@@ -114,6 +131,21 @@ $is_burger = $menu && $menu->items->count() > $menu->max_visible_items;
                 </a>
               </li>
             @endforeach
+          @endif
+        </ul>
+
+        <ul class="text-center">
+          @if (EnsoSettings::get('instagram_url') || EnsoSettings::get('facebook_url') || EnsoSettings::get('twitter_url'))
+            <li class="text-white text-4xl font-teko">Social</li>
+            @if (EnsoSettings::get('instagram_url'))
+              <li><a href="{{ EnsoSettings::get('instagram_url') }}">instagram</a></li>
+            @endif
+            @if (EnsoSettings::get('facebook_url'))
+              <li><a href="{{ EnsoSettings::get('facebook_url') }}">facebook</a></li>
+            @endif
+            @if (EnsoSettings::get('twitter_url'))
+              <li><a href="{{ EnsoSettings::get('twitter_url') }}">twitter</a></li>
+            @endif
           @endif
         </ul>
       </div>

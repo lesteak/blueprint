@@ -1,3 +1,30 @@
+@php
+    $cards = [];
+    if (EnsoSettings::get('more_links_trainers_url'))
+    {
+        $cards[] = [
+            "name" => EnsoSettings::get('more_links_trainers_title'),
+            "img" => collect(EnsoSettings::get('more_links_trainers_image'))->first(),
+            "url" => EnsoSettings::get('more_links_trainers_url')
+        ];
+    }
+    if (EnsoSettings::get('more_links_classes_url'))
+    {
+        $cards[] = [
+            "name" => EnsoSettings::get('more_links_classes_title'),
+            "img" => collect(EnsoSettings::get('more_links_classes_image'))->first(),
+            "url" => EnsoSettings::get('more_links_classes_url')
+        ];
+    }
+    if (EnsoSettings::get('more_links_timetable_url'))
+    {
+        $cards[] = [
+            "name" => EnsoSettings::get('more_links_timetable_title'),
+            "img" => collect(EnsoSettings::get('more_links_timetable_image'))->first(),
+            "url" => EnsoSettings::get('more_links_timetable_url')
+        ];
+    }
+@endphp
 @extends('layouts.app')
 
 @section('content')
@@ -11,7 +38,6 @@
       text-white
       relative
       mb-20
-      pt-20
       md:pt-5
     "
   >
@@ -25,18 +51,18 @@
         justify-center
         max-w-screen-2xl
         m-auto
-        py-40
+        md:py-40
         p-5
         md:flex-row
         md:justify-between
         gap-5
-        pt-20
+        pt-10
         md:pt-40
       "
     >
       <div class="md:w-6/12 w-full flex justify-center md:justify-between flex-col h-auto gap-5">
         <div class="flex flex-col gap-5 px-5 border-b border-b-black/30">
-          <h1 class="text-8xl">{{ $trainer->name }}</h1>
+          <h1 class="text-5xl md:text-8xl">{{ $trainer->name }}</h1>
           @if ($trainer->role)
             <p class="text-white text-base font-cabin tracking-widest uppercase pb-10">{{ $trainer->role }}</p>
           @endif
@@ -90,8 +116,8 @@
 
   @flexibleField($page, 'content', 'content')
 
-  <section class="max-w-screen-2xl m-auto p-10">
-    <h2 class="text-8xl">More</h2>
-    <more-links :hide="'/classes'"></more-links>
+  <section class="max-w-screen-2xl m-auto md:p-10 p-5">
+    <h2 class="text-5xl md:text-8xl">More</h2>
+    <more-links :cards='@json($cards)' :hide="'/classes'"></more-links>
   </section>
 @endsection

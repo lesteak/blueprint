@@ -26,7 +26,7 @@
    $row_id = $row_data->row_id ? $row_data->row_id : $id_prefix . '-' . $row_index;
  @endphp
  
- <section id="{{ $row_data->row_id }}" class="max-w-screen-2xl m-auto mt-20 p-10">
+ <section id="{{ $row_data->row_id }}" class="max-w-screen-2xl m-auto mt-20 md:p-10 p-5">
    <div class="flex flex-col justify-center gap-20">
        <div
          class="
@@ -46,7 +46,7 @@
           </div>
          @endif
          <div class="flex flex-col justify-start w-full p-10 md:p-0">
-           <h2 class="text-white text-8xl">{{ $row_data->title }}</h2>
+           <h2 class="text-white text-5xl md:text-8xl">{{ $row_data->title }}</h2>
            {!! $row_data->content !!}
            <x-button-group :buttons="$row_data->buttons" class="mt-8"></x-button-group>
          </div>

@@ -14,7 +14,6 @@
       text-white
       relative
       mb-20
-      pt-20
       md:pt-5
     "
   >
@@ -28,17 +27,17 @@
         justify-center
         max-w-screen-2xl
         m-auto
-        py-40
+        md:py-40
         p-5
         md:flex-row
         gap-5
-        pt-20
+        pt-10
         md:pt-40
       "
     >
       <div class="md:w-6/12 w-full flex justify-center md:justify-start flex-col h-auto gap-5">
         <div class="flex flex-col gap-5 px-5 border-b border-b-black/30">
-          <h1 class="text-8xl">{{ $location->name }}</h1>
+          <h1 class="text-5xl md:text-8xl">{{ $location->name }}</h1>
           @if ($location->role)
             <p class="text-white text-base font-cabin tracking-widest uppercase pb-10">{{ $location->role }}</p>
           @endif
@@ -85,6 +84,27 @@
           </li>
           @endif
         </ul>
+
+        <div class="flex 2-full flex-col md:flex-row">
+          @if ($location->glowfox_id)
+          <a
+            href="{{$location->slug}}/timetable"
+            class="px-6 m-0 button"
+          >
+            Timetable
+          </a>
+          @endif
+          @if ($location->address)
+          <a
+            href="https://www.google.com/maps/dir//{{urlencode($location->address)}}"
+            target="_blank"
+            class="px-6 button m-0 sign-post max-w-fit"
+            style="margin-left:0!important;"
+          >
+            get directions
+          </a>
+          @endif
+        </div>
 
       </div>
 

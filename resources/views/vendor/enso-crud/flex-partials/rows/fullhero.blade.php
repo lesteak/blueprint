@@ -26,21 +26,21 @@
   $row_data = $row->unpack();
   //dd($row_data);
   $background_style = $row_data->desktop_image
-    ? 'background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(' . $row_data->desktop_image->getResizeUrl('hero', true) . ');'
+    ? 'background: linear-gradient(rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url(' . $row_data->desktop_image->getResizeUrl('hero_lg', true) . '); background-position:center;background-size:cover;'
     : "bg-red-500";
 @endphp
 
 <section id="{{ $row_data->row_id }}">
   <div class="relative h-screen p-10 bg-center bg-cover" style="{{ $background_style }}">
     <div class="max-w-screen-2xl m-auto flex flex-col justify-center h-full">
-      <div class="w-full md:w-1/2">
-        <h1 class="text-white text-10xl pr-4">{{ $row_data->title }}</h1>
+      <div class="w-full lg:w-1/2">
+        <h1 class="text-white text-7xl md:text-10xl pr-4">{{ $row_data->title }}</h1>
         <div class="[&>P]:text-brand-grey-100 [&>P]:text-lg">
           {!! $row_data->content !!}
         </div>
         <x-button-group :buttons="$row_data->buttons" class="mt-8"></x-button-group>
       </div>
-      <div class="w-full md:w-1/2">
+      <div class="w-full lg:w-1/2">
         <img src="{{ $row_data->desktop_image }}" alt="">
       </div>
     </div>

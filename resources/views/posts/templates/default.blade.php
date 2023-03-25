@@ -10,7 +10,7 @@
 </style>
 
 @section('content')
-  <article class="max-w-[960px] m-auto mt-10">
+  <article class="max-w-[960px] m-auto mt-0 md:mt-10">
     <header>
       <div class="flex flex-col justify-center">
         @if ($post->hero)
@@ -23,7 +23,7 @@
       </div>
     </header>
     <div class="max-w-[720px] w-full m-auto">
-      <h1 class="text-8xl mt-10 px-10">{{ $post->title }}</h1>
+      <h1 class="text-5xl md:text-8xl mt-10 px-10">{{ $post->title }}</h1>
       
       @flexibleField($post, 'content', 'content')
 
@@ -36,5 +36,12 @@
     </div>
   </article>
 
-  @include('enso-blog::parts.related-posts')
+  @if (!empty($related_posts))
+    <section class="max-w-screen-2xl m-auto md:p-10 p-5 mt-20">
+      <h2 class="text-3 mb-5">Related Posts</h2>
+      {{--  @if ($related_posts->count() > 0)  --}}
+        <article-index :preloaded_articles='@json($related_posts)'></article-index>
+      {{--  @endif  --}}
+    </section>
+  @endif
 @endsection

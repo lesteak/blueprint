@@ -16,6 +16,7 @@
             max-w-[460px]
             max-h-[300px]
             object-cover
+            aspect-square
           "
         >
         <div
@@ -39,7 +40,7 @@
         </div>
         </div>
       </div>
-      <div class="font-teko text-4xl border-l-4 border-brand-blue p-5">
+      <div class="normal-case font-teko text-4xl border-l-4 border-brand-blue p-5">
         {{ article.title }}
       </div>
     </div>

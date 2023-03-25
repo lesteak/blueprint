@@ -44,7 +44,7 @@ $menus = new \Illuminate\Support\Collection([$footer_locations, $footer_more]);
           @endif
         @endforeach
 
-        @if (EnsoSettings::get('instagram_url') || EnsoSettings::get('facebook_url'))
+        @if (EnsoSettings::get('instagram_url') || EnsoSettings::get('facebook_url') || EnsoSettings::get('twitter_url'))
           <ul class="border-t md:border-l md:border-t-0 border-brand-grey-500 pt-4 md:pl-4">
             <li class="text-white text-4xl font-teko">Social</li>
             @if (EnsoSettings::get('instagram_url'))
@@ -53,6 +53,9 @@ $menus = new \Illuminate\Support\Collection([$footer_locations, $footer_more]);
             @if (EnsoSettings::get('facebook_url'))
               <li><a href="{{ EnsoSettings::get('facebook_url') }}">facebook</a></li>
             @endif
+            @if (EnsoSettings::get('twitter_url'))
+            <li><a href="{{ EnsoSettings::get('twitter_url') }}">twitter</a></li>
+          @endif
           </ul>
         @endif
       </nav>

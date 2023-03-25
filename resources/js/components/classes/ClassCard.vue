@@ -42,7 +42,7 @@
       <a :href="classInstance.url" class="w-full text-center py-5 border-r border-black/30">
         More Info
       </a>
-      <a :href="classInstance.url" class="w-full text-center py-5">
+      <a href="/timetables" class="w-full text-center py-5">
         Book Class
       </a>
     </div>
